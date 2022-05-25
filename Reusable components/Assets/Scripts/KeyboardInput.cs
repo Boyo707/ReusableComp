@@ -26,15 +26,26 @@ public class KeyboardInput : MonoBehaviour
         get { return Input.GetButtonDown("Jump"); }
     }
 
+    public bool projectileAttack
+    {
+        get { return Input.GetButtonDown("Projectile Attack"); }
+    }
+
+    public bool melleeAttack
+    {
+        get { return Input.GetButtonDown("Mellee Attack"); }
+    }
+
     public Vector2 moveInput
     {
         get { return _moveInput; }
     }
 
+
     // Update is called once per frame
     void Update()
     {
         _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+        
     }
 }

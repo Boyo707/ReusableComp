@@ -60,25 +60,25 @@ public class Jump : MonoBehaviour, IJump
 
     public void GroundCheck()
     {
-        Vector2 lengthN = new Vector2(transform.position.x - 0.065f, transform.position.y + -transform.localScale.y / 1.53f);
+        Vector2 lengthN = new Vector2(transform.position.x - 0.065f, transform.position.y + -transform.localScale.y / 1.52f);
 
-        _onGround = (Physics2D.OverlapBox(lengthN, new Vector2(1.28f, 0.17f), 0, _layermask) != null);
+        _onGround = (Physics2D.OverlapBox(lengthN, new Vector2(1.18f, 0.2f), 0, _layermask) != null);
     }
 
 
     private void Update()
     {
 
-        //OnDrawGizmos();
+        OnDrawGizmos();
     }
 
     void OnDrawGizmos()
     {
-        Vector2 lengthN = new Vector2(transform.position.x - 0.065f, transform.position.y + -transform.localScale.y / 1.53f);
+        Vector2 lengthN = new Vector2(transform.position.x - 0.065f, transform.position.y + -transform.localScale.y / 1.52f);
 
         
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(lengthN, new Vector2(1.28f, 0.17f));
+        Gizmos.DrawWireCube(lengthN, new Vector2(1.18f, 0.2f));
     }
 }

@@ -7,14 +7,30 @@ interface IMovements
     void MoveInput(Vector2 direction, bool sprinting = false);
 }
 
-interface IJump
+interface IJump // double jump als 2e class
 {
     bool onGround { get; }
     void JumpInput(bool jumpDown, bool jumpHold = false);
     void GroundCheck();    
 }
 
+interface IAttack
+{
+    void Attack(bool attack, bool facingLeft);
+}
+
 interface IProjectile
 {
-    void Projectile(float Range, float fallDistance, float arch, bool bounce);
+    void ProjectileSettings(float speed, bool facingLeft, float arch);
+}
+
+
+interface IEnemy
+{
+
+}
+
+interface IPlayer
+{
+
 }

@@ -7,12 +7,14 @@ public class PlayerAnimParams : MonoBehaviour
     private Animator anim;
     private Rigidbody2D _rB;
     private Jump _jump;
+    private KeyboardInput _kB;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         _rB = GetComponent<Rigidbody2D>();
         _jump = GetComponent<Jump>();
+        _kB = GetComponent<KeyboardInput>();
     }
 
     // Update is called once per frame
@@ -37,5 +39,6 @@ public class PlayerAnimParams : MonoBehaviour
         anim.SetFloat("verticalVelocity", verticalSpeed);
         anim.SetFloat("m", horizontalSpeed);
         anim.SetBool("onGround", onGround);
+        anim.SetBool("Sprinting", _kB.Sprinting);
     }
 }
