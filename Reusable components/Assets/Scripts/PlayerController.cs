@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayer
 {
     private KeyboardInput _kB;
     private SpriteRenderer _spR;
@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         _jump.GroundCheck();
         _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
-        _attack.Attack(_kB.projectileAttack, _spR.flipX) ;
-        Debug.Log(_spR.flipX + " SPRITEFLIP");
+        _attack.Attack(_kB.projectileAttack, _spR.flipX);
     }
 
     private void FixedUpdate()

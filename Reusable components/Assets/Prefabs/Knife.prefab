@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 4552813934621821528}
   - component: {fileID: 4552813934621821607}
   - component: {fileID: 4552813934621821604}
-  - component: {fileID: 2145103830791442156}
+  - component: {fileID: -7995731017711390815}
+  - component: {fileID: 7591833189731732737}
+  - component: {fileID: -5159498127897894314}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -100,14 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c470a11c4f9eb4186fb9f435cdd6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pT: 1
-  _friendlyProjectile: 1
-  _speed: 20
-  _range: 10
-  _arch: 45
   _lifeTime: 4
-  _destroysOnHit: 0
-  _facingLeft: 1
 --- !u!50 &4552813934621821607
 Rigidbody2D:
   serializedVersion: 4
@@ -155,7 +150,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &2145103830791442156
+--- !u!114 &-7995731017711390815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,6 +159,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 4552813934621821531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b3bc116035cc64b897697f13c8d256, type: 3}
+  m_Script: {fileID: 11500000, guid: 0de9b4a431b3b1049a3f960932574c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkForFriendlyFire: 0
+--- !u!114 &7591833189731732737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552813934621821531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c16ba688dfcab4498a509f7a0458a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 20
+  _range: 10
+  _facingLeft: 0
+--- !u!114 &-5159498127897894314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552813934621821531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e1530ef8276bb479f6cd4a30386b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arch: 67.5
+  speed: 10
+  spinSpeed: 1000

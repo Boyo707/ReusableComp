@@ -24,6 +24,17 @@ interface IProjectile
     void ProjectileSettings(float speed, bool facingLeft, float arch);
 }
 
+interface ITrajectory
+{
+    void facingLeft(bool facingLeft);
+}
+
+interface IHealth
+{
+    void TakeDamage(int damage);
+    void OnDeath();
+}
+
 
 interface IEnemy
 {

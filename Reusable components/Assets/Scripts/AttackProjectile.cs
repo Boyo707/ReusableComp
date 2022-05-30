@@ -14,12 +14,12 @@ public class AttackProjectile : MonoBehaviour, IAttack
     {
         //shoot + delay count down
 
-        projectile.GetComponent<Projectile>().FacingLeft(facingLeft);
+        projectile.GetComponent<ITrajectory>().facingLeft(facingLeft);
         if (timer <= 0)
         {
+
             if (attack)
             {
-                
                 Instantiate(projectile, gameObject.transform);
                 timer += _endLag;
             }
@@ -27,6 +27,7 @@ public class AttackProjectile : MonoBehaviour, IAttack
         else if(timer > 0)
         {
             timer -= Time.deltaTime;
+            
         }
             
         

@@ -31,9 +31,6 @@ public class PlayerAnimParams : MonoBehaviour
 
         bool onGround = _jump.onGround;
 
-        if (verticalSpeed <= -2 && onGround)
-            Debug.Log("OVER -2 I AM = " + verticalSpeed);
-
             //bool isGrounded
             anim.SetBool("Moving", moving);
         anim.SetFloat("verticalVelocity", verticalSpeed);
