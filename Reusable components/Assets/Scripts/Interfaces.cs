@@ -4,12 +4,13 @@ using UnityEngine;
 
 interface IMovements
 {
-    void MoveInput(Vector2 direction, bool sprinting = false);
+    void MoveInput(Vector2 direction ,bool sprinting = false);
 }
 
 interface IJump // double jump als 2e class
 {
     bool onGround { get; }
+
     void JumpInput(bool jumpDown, bool jumpHold = false);
     void GroundCheck();    
 }
@@ -31,7 +32,8 @@ interface ITrajectory
 
 interface IHealth
 {
-    void TakeDamage(int damage);
+    void TakeDamage(int damage, bool spriteFlippedX);
+    bool knocked { get; }
     void OnDeath();
 }
 

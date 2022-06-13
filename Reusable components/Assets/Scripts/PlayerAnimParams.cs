@@ -8,6 +8,7 @@ public class PlayerAnimParams : MonoBehaviour
     private Rigidbody2D _rB;
     private Jump _jump;
     private KeyboardInput _kB;
+    private slopeMovement _slope;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class PlayerAnimParams : MonoBehaviour
         _rB = GetComponent<Rigidbody2D>();
         _jump = GetComponent<Jump>();
         _kB = GetComponent<KeyboardInput>();
+        _slope = GetComponent<slopeMovement>();
     }
 
     // Update is called once per frame
@@ -31,11 +33,12 @@ public class PlayerAnimParams : MonoBehaviour
 
         bool onGround = _jump.onGround;
 
-            //bool isGrounded
-            anim.SetBool("Moving", moving);
+        //bool isGrounded
+        anim.SetBool("Moving", moving);
         anim.SetFloat("verticalVelocity", verticalSpeed);
         anim.SetFloat("m", horizontalSpeed);
         anim.SetBool("onGround", onGround);
         anim.SetBool("Sprinting", _kB.Sprinting);
+        anim.SetBool("onSlope", _slope.onSlope);
     }
 }

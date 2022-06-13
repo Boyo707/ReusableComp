@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class projectileDefaultCollision : MonoBehaviour
 {
+    private SpriteRenderer _spr;
+
+    private void Start()
+    {
+        _spr = GetComponent<SpriteRenderer>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<IPlayer>() != null)
         {
             if (transform.parent.GetComponent<IEnemy>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1);
+                collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
                 Destroy(gameObject);
                 Debug.Log("COllision player");
             }
@@ -19,7 +26,7 @@ public class projectileDefaultCollision : MonoBehaviour
         {
             if (gameObject.transform.parent.GetComponent<IPlayer>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1);
+                collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
                 Destroy(gameObject);
                 Debug.Log("COllision enemy");
             }

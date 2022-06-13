@@ -27,7 +27,6 @@ public class EnemyFollowing : MonoBehaviour
 
         float otherDistance = _objectToFollow.transform.position.x - gameObject.transform.position.x;
 
-        Debug.Log(otherDistance);
 
         if (otherDistance > 0)
             _direction = Vector2.right;

@@ -5,8 +5,14 @@ using UnityEngine;
 public class Heath : MonoBehaviour, IHealth 
 {
     [SerializeField] private int _health;
-
+    [SerializeField] private float _knockBackAngle;
+    [SerializeField] private float _knockBackForce;
+    [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
+    private Vector2 _angle;
     private ParticleSystem _particles;
+    private Rigidbody2D _rb;
+    private bool _knocked;
+    private float time;
 
     //delegate/event maken voor onDeath. Add particle system/active particle, death animation, destory en of voor de player een game over screen met een respawn/retry button?
 
@@ -14,6 +20,7 @@ public class Heath : MonoBehaviour, IHealth
     void Start()
     {
         _particles = GetComponent<ParticleSystem>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -21,22 +28,62 @@ public class Heath : MonoBehaviour, IHealth
     {
         if (_health <= 0)
             OnDeath();
+
+        if (_knocked)
+        {
+            if (time > 0)
+            {
+                time -= Time.deltaTime;
+
+            }
+            else
+                _knocked = false;
+        }
+    }
+
+    public bool knocked
+    {
+        get { return _knocked; }
     }
 
     //UI maken voor de player waar je de health kan zien.
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool flipX)
     {
         _health -= damage;
         _particles.Play();
-        Debug.Log(_health);
+        _knocked = true;
+        time = _knockBacklag;
+        knockBack(flipX);
+        
     }
 
     public void OnDeath()
     {
-        //enemy/player animparams krijgen de parameter van de death animation. //Start particle effect
+        //particle effect loop voor de player??
         _particles.Play();
         Debug.Log("I AM DEAD");
-        Destroy(gameObject);
+        if(GetComponent<IPlayer>() != null)
+        {
+            //enemy/player animparams krijgen de parameter van de death animation.
+        }
+        else
+            Destroy(gameObject);
+    }
+
+    void knockBack(bool flipX)
+    {
+        ///Moet naar de richting dat de enemy faced
+        ///verander het naar sprite flip x :(
+        Vector2 Angle = Vector2.zero;
+        Vector2 lol = new Vector2(100, 0);
+        if (flipX)
+            Angle = new Vector2(Mathf.Cos((45 + 180) * Mathf.Deg2Rad) * _knockBackForce, Mathf.Sin(45 * Mathf.Deg2Rad) * _knockBackForce);
+        else
+            Angle = new Vector2(Mathf.Cos(45 * Mathf.Deg2Rad) * _knockBackForce, Mathf.Sin(45 * Mathf.Deg2Rad) * _knockBackForce);
+        _rb.velocity = Angle;
+
+        
+        Debug.Log(Angle);
     }
 }

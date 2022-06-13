@@ -24,8 +24,7 @@ public class ProjectileArchTrajectory : MonoBehaviour, ITrajectory
     void Update()
     {
         if (_rB.velocity.x == 0)
-        {
-            Debug.Log("DOING THE FUCKING SCRIPT");
+        { 
             Vector2 Angle = Vector2.zero;
             if (_facingLeft)
                 Angle = new Vector2(Mathf.Cos((_arch + 180) * Mathf.Deg2Rad) * _speed, Mathf.Sin(_arch * Mathf.Deg2Rad) * _speed);

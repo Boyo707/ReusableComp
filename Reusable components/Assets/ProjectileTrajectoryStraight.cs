@@ -10,14 +10,23 @@ public class ProjectileTrajectoryStraight : MonoBehaviour, ITrajectory
     private float startingPos;
     private float currentPos;
     private float endPos;
+    private bool _stopMoving = false;
 
     private Rigidbody2D _rB;
     private SpriteRenderer _spR;
+
+    //iets maken dat de update stopt of
 
     public void facingLeft(bool facingLeft)
     {
         _facingLeft = facingLeft;
     }
+
+    public bool stopMoving
+    {
+        set { _stopMoving = value; }
+    }
+
 
 
     // Start is called before the first frame update
@@ -36,10 +45,11 @@ public class ProjectileTrajectoryStraight : MonoBehaviour, ITrajectory
     {
         if (_facingLeft)
         {
-            _spR.flipX = true;
+            
             endPos = startingPos - _range;
-            if (currentPos > endPos)
+            if (currentPos > endPos && _stopMoving == false)
             {
+                _spR.flipX = true;
                 Debug.Log("STRAIGHT LEFT");
                 currentPos = _rB.position.x;
                 _rB.velocity = Vector2.left * _speed;
@@ -54,7 +64,7 @@ public class ProjectileTrajectoryStraight : MonoBehaviour, ITrajectory
         {
 
             endPos = startingPos + _range;
-            if (currentPos < endPos)
+            if (currentPos < endPos && _stopMoving == false)
             {
                 _rB.velocity = Vector2.right * _speed;
                 currentPos = _rB.position.x;
