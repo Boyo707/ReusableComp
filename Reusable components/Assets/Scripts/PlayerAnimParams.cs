@@ -9,6 +9,7 @@ public class PlayerAnimParams : MonoBehaviour
     private Jump _jump;
     private KeyboardInput _kB;
     private slopeMovement _slope;
+    private Heath _health;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerAnimParams : MonoBehaviour
         _jump = GetComponent<Jump>();
         _kB = GetComponent<KeyboardInput>();
         _slope = GetComponent<slopeMovement>();
+        _health = GetComponent<Heath>();
     }
 
     // Update is called once per frame
@@ -40,5 +42,7 @@ public class PlayerAnimParams : MonoBehaviour
         anim.SetBool("onGround", onGround);
         anim.SetBool("Sprinting", _kB.Sprinting);
         anim.SetBool("onSlope", _slope.onSlope);
+        anim.SetBool("Hurt", _health.knocked);
+        
     }
 }

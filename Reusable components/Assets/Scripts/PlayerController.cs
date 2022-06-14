@@ -67,11 +67,11 @@ public class PlayerController : MonoBehaviour, IPlayer
 
         if (_slope.onSlope == false && _jump.onGround)
             movementType = 0;
-        /*else if (!_jump.onGround)
+        else if (!_jump.onGround)
         {
             movementType = 0;
 
-        }*/
+        }
         else if (_slope.onSlope && time <= 0)
             movementType = 1;
 
