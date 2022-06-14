@@ -27,7 +27,6 @@ public class slopeMovement : MonoBehaviour, IMovements
     private RaycastHit2D[] boxRayCastHit;
     private RaycastHit2D rayCastHit1;
 
-    private float _angle90;
 
     // Start is called before the first frame update
 
@@ -65,10 +64,7 @@ public class slopeMovement : MonoBehaviour, IMovements
                 //Debug.Log(angle);
                 if (angle == 90 || angle == 180)
                 {
-                    if (angle == 90)
-                        _angle90 = angle;
-                    else
-                        _angle90 = 0;
+
                     return false;
                 }
                    
