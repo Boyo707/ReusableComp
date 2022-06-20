@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class DestoryObject : MonoBehaviour
 {
-    [SerializeField] private bool checkForFriendlyFire;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _particlePrefab;
+    public delegate void DestroyAction();
+    //public DestroyAction action = delegate { };
+    public event DestroyAction action = delegate { };
+
+    private void OnDestroy()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (checkForFriendlyFire)
+        if (_particlePrefab != null)
         {
-
+            Vector2 lastPos = gameObject.transform.position;
+            Instantiate(_particlePrefab, lastPos, Quaternion.identity);
         }
-        else
-        {
-
-        }
+        action();
     }
+
 }

@@ -9,7 +9,7 @@ public class PlayerAnimParams : MonoBehaviour
     private Jump _jump;
     private KeyboardInput _kB;
     private slopeMovement _slope;
-    private Heath _health;
+    private Health _health;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class PlayerAnimParams : MonoBehaviour
         _jump = GetComponent<Jump>();
         _kB = GetComponent<KeyboardInput>();
         _slope = GetComponent<slopeMovement>();
-        _health = GetComponent<Heath>();
+        _health = GetComponent<Health>();
     }
 
     // Update is called once per frame

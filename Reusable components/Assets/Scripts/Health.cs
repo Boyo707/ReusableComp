@@ -2,19 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heath : MonoBehaviour, IHealth 
+public class Health : MonoBehaviour, IHealth 
 {
     [SerializeField] private int _health;
     [SerializeField] private float _knockBackAngle;
     [SerializeField] private float _knockBackForce;
     [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
-    private Vector2 _angle;
+
+    
+
     private ParticleSystem _particles;
     private Rigidbody2D _rb;
     private bool _knocked;
     private float time;
 
+    public delegate void onDeath();
+    public onDeath OnDeath;
+    //public event onDeath OnDeath = delegate { };
+
     //delegate/event maken voor onDeath. Add particle system/active particle, death animation, destory en of voor de player een game over screen met een respawn/retry button?
+
+    public int HealthInt { get { return _health; } }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +37,12 @@ public class Heath : MonoBehaviour, IHealth
     void Update()
     {
         if (_health <= 0)
-            OnDeath();
+        {
+            if (GetComponent<IPlayer>() != null)
+                OnDeath();
+            else
+                Destroy(gameObject);
+        }
 
         if (_knocked)
         {
@@ -58,7 +73,7 @@ public class Heath : MonoBehaviour, IHealth
         
     }
 
-    public void OnDeath()
+    /*public void OnDeath()
     {
         //particle effect loop voor de player??
         _particles.Play();
@@ -67,9 +82,7 @@ public class Heath : MonoBehaviour, IHealth
         {
             //enemy/player animparams krijgen de parameter van de death animation.
         }
-        else
-            Destroy(gameObject);
-    }
+    }*/
 
     void knockBack(bool flipX)
     {

@@ -12,9 +12,13 @@ public class PlayerController : MonoBehaviour, IPlayer
     private IHealth _health;
     private slopeMovement _slope;
     private Rigidbody2D _rb;
+    private WalkMovement _walk;
+    private DestoryObject _destroy;
+   
 
     [SerializeField]private int movementType;
     private float time;
+    private float othertime;
     private float _defaultGravity;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +30,11 @@ public class PlayerController : MonoBehaviour, IPlayer
         _movement = GetComponents<IMovements>();
         _attack = GetComponent<IAttack>();
         _health = GetComponent<IHealth>();
+        _walk = GetComponent<WalkMovement>();
         _slope = GetComponent<slopeMovement>();
-        //Debug.Log(_movement[0] + " " + _movement[1]);
         _defaultGravity = _rb.gravityScale;
+        _destroy = GetComponent<DestoryObject>();
+        
     }
 
     // Update is called once per frame
@@ -39,6 +45,7 @@ public class PlayerController : MonoBehaviour, IPlayer
             _jump.GroundCheck();
             _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
             _attack.Attack(_kB.projectileAttack, _spR.flipX);
+            
         }
         movementSwitcher();
     }
@@ -54,6 +61,9 @@ public class PlayerController : MonoBehaviour, IPlayer
 
     private void movementSwitcher()
     {
+        ///Ik will de box collider uitzetten wanneer ik op een slope ben. en aan wanneer ik dat niet ben
+
+
         if (movementType == 1 && _kB.moveInput == Vector2.zero)
             _rb.gravityScale = 0;
         else
@@ -62,19 +72,22 @@ public class PlayerController : MonoBehaviour, IPlayer
         if (_kB.jumpDown)
         {
             movementType = 0;
-            time = 0.1f;
+            time = 0.2f;
         }
 
         if (_slope.onSlope == false && _jump.onGround)
             movementType = 0;
         else if (!_jump.onGround)
         {
-            movementType = 0;
-
+           movementType = 0;
         }
         else if (_slope.onSlope && time <= 0)
+        {
+            
             movementType = 1;
+        }
 
+        
 
         if (time > 0)
         {

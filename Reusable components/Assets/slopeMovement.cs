@@ -27,6 +27,8 @@ public class slopeMovement : MonoBehaviour, IMovements
     private RaycastHit2D[] boxRayCastHit;
     private RaycastHit2D rayCastHit1;
 
+    private bool onSlopeEnt = false;
+
 
     // Start is called before the first frame update
 
@@ -45,14 +47,7 @@ public class slopeMovement : MonoBehaviour, IMovements
     {
         Vector2 boxSize = new Vector2(boxWith, boxLength);
         Vector2 boxOrigin = new Vector2(transform.position.x - 0.05f, transform.position.y - 1f);
-        //boxRayCastHit = Physics2D.BoxCast(boxOrigin, boxSize, 0, Vector2.down, 0, _layerMask);
         boxRayCastHit = Physics2D.BoxCastAll(boxOrigin, boxSize, 0, Vector2.down, 0, _layerMask);
-
-        //RAYCAST HIT PAS ALS IK OP SLOPE STA EN NIET ALS RAYCAST ER OP STAAT.
-        //verbetering de raycast pakt de eerste die het raakt en raak daardor niet de slope die het er naast staat.
-        //Kan de slopemovement beter maken door de movement type dat in de player controller zit door de nummer te sturen door -
-        //een check te sturen dat als de angle meer dan de maxSlope is door de movement type dan te veranderen.
-        //kan dit soort van doen door boxcast all te doen?
 
 
         for (int i = 0; i < boxRayCastHit.Length; i++)
@@ -62,12 +57,11 @@ public class slopeMovement : MonoBehaviour, IMovements
                 currentHit = boxRayCastHit[i];
                 float angle = Vector2.Angle(Vector2.down, currentHit.normal);
                 //Debug.Log(angle);
-                if (angle == 90 || angle == 180)
+                if (angle == 90 || angle == 180 || angle == 0)
                 {
-
                     return false;
                 }
-                   
+                
                 return angle < maxSlopeAngle && angle != 0;
             }
         }
@@ -112,6 +106,8 @@ public class slopeMovement : MonoBehaviour, IMovements
     {
         _onSlope = OnSlope();
     }
+
+    
 
     void OnDrawGizmos()
     {

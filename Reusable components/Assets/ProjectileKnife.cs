@@ -15,6 +15,7 @@ public class ProjectileKnife : MonoBehaviour
     [SerializeField] private float _spinDelay;
     [SerializeField] private float raycastLength;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private GameObject _particle;
 
     private RaycastHit2D _projectileRaycastR;
     private RaycastHit2D _projectileRaycastL;
@@ -47,6 +48,8 @@ public class ProjectileKnife : MonoBehaviour
             if (transform.parent.GetComponent<IEnemy>() != null)
             {
                 collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                Vector2 lastLocation = gameObject.transform.position;
+                Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
@@ -55,6 +58,8 @@ public class ProjectileKnife : MonoBehaviour
             if (gameObject.transform.parent.GetComponent<IPlayer>() != null)
             {
                 collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                Vector2 lastLocation = gameObject.transform.position;
+                Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
@@ -82,7 +87,8 @@ public class ProjectileKnife : MonoBehaviour
             }
             else
             {
-                _particles.Play();
+                Vector2 lastLocation = gameObject.transform.position;
+                Instantiate(_particle, lastLocation, Quaternion.identity);
 
                 Destroy(gameObject, 0.3f);
             }

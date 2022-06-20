@@ -186,6 +186,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+  _particle: {fileID: 9154582250693878557, guid: bd822e18349061e4595e445ce6aeb73a, type: 3}
 --- !u!198 &8214300469343680375
 ParticleSystem:
   m_ObjectHideFlags: 0

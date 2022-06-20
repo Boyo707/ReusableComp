@@ -32,9 +32,10 @@ interface ITrajectory
 
 interface IHealth
 {
+    int HealthInt { get; }
     void TakeDamage(int damage, bool spriteFlippedX);
     bool knocked { get; }
-    void OnDeath();
+    //void OnDeath();
 }
 
 

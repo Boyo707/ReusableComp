@@ -5,11 +5,16 @@ using UnityEngine;
 public class AttackProjectile : MonoBehaviour, IAttack
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private bool infinite;
+    [SerializeField] private int projectileAmount;
     [SerializeField] private float _startupLag;
     [SerializeField] private float _endLag;
 
     private float timer;
     private Vector2 origin;
+
+    public int projectileAmounts { get { return projectileAmount; } set { projectileAmount = value; } }
+
 
     public void Attack(bool attack, bool facingLeft)
     {
@@ -25,9 +30,10 @@ public class AttackProjectile : MonoBehaviour, IAttack
         if (timer <= 0)
         {
 
-            if (attack)
+            if (attack && projectileAmount != 0 || attack && infinite)
             {
                 Instantiate(projectile, vector3, Quaternion.identity, gameObject.transform);
+                projectileAmount -= 1;
                 timer += _endLag;
             }
         }
