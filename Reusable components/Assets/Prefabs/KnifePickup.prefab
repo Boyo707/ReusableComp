@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _addAmount: 1
+  _pickupType: 1
 --- !u!61 &2858476462790496033
 BoxCollider2D:
   m_ObjectHideFlags: 0

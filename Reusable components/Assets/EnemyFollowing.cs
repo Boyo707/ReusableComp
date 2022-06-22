@@ -9,7 +9,6 @@ public class EnemyFollowing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     public Vector2 moveDir 
@@ -22,16 +21,18 @@ public class EnemyFollowing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //checked of het links of rechts staat van de enemy
-        float distance = Vector2.Distance(gameObject.transform.position, _objectToFollow.transform.position);
 
-        float otherDistance = _objectToFollow.transform.position.x - gameObject.transform.position.x;
+        
+            //checked of het links of rechts staat van de enemy
+            float distance = Vector2.Distance(gameObject.transform.position, _objectToFollow.transform.position);
+
+            float otherDistance = _objectToFollow.transform.position.x - gameObject.transform.position.x;
 
 
-        if (otherDistance > 0)
-            _direction = Vector2.right;
-        else if (otherDistance < 0)
-            _direction = Vector2.left;
-
+            if (otherDistance > 0)
+                _direction = Vector2.right;
+            else if (otherDistance < 0)
+                _direction = Vector2.left;
+        
     }
 }

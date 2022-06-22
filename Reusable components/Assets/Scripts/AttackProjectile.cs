@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackProjectile : MonoBehaviour, IAttack
+public class AttackProjectile : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private bool infinite;
@@ -10,11 +10,13 @@ public class AttackProjectile : MonoBehaviour, IAttack
     [SerializeField] private float _startupLag;
     [SerializeField] private float _endLag;
 
+    [SerializeField]private Animator _bodyAnim;
+
     private float timer;
     private Vector2 origin;
+    private Vector3 gay;
 
     public int projectileAmounts { get { return projectileAmount; } set { projectileAmount = value; } }
-
 
     public void Attack(bool attack, bool facingLeft)
     {
@@ -25,14 +27,17 @@ public class AttackProjectile : MonoBehaviour, IAttack
             origin = new Vector2(gameObject.transform.position.x - gameObject.transform.localScale.x / -1.20f, gameObject.transform.position.y);
 
 
-        Vector3 vector3 = new Vector3(origin.x, origin.y, 0);
         projectile.GetComponent<ITrajectory>().facingLeft(facingLeft);
+
         if (timer <= 0)
         {
 
             if (attack && projectileAmount != 0 || attack && infinite)
             {
-                Instantiate(projectile, vector3, Quaternion.identity, gameObject.transform);
+                if(GetComponent<IPlayer>() != null)
+                    _bodyAnim.SetBool("Throw", true);
+                
+                Instantiate(projectile, origin, Quaternion.identity, gameObject.transform);
                 projectileAmount -= 1;
                 timer += _endLag;
             }
@@ -40,9 +45,12 @@ public class AttackProjectile : MonoBehaviour, IAttack
         else if(timer > 0)
         {
             timer -= Time.deltaTime;
-            
+            if (GetComponent<IPlayer>() != null)
+                _bodyAnim.SetBool("Throw", false);
         }
             
         
     }
+
+
 }

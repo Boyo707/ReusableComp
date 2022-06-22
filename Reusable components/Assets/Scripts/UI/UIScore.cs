@@ -20,27 +20,33 @@ public class UIScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         thingy(_score);
-        int firstNumber = (_score / 1000000000) % 10;
 
-        if (firstNumber != 0)
-        {
-            
-
-            //Debug.Log(firstNumber+ "first" + secondNumber + "second" + thirdNumber + "thirt");
-            
-            //_text.text = $"<sprite={firstNumber}> <sprite={secondNumber}>";
-            _text.text = thingy(_score);
-        }
+        _text.text = thingy(_score);
     }
 
     private string thingy(int score)
     {
         //Als ik de starting number aanpas dan gaat het de eerste number weg halen. Maar als ik de score in de inspector aanpas-
         //dan laat het 0 zien. moet met debugs kijken waar het fout gaat.
-        long[] stuffy = new long[(long)Mathf.Floor(Mathf.Log10(_score) + 1) + 1];
+
+        //als het tien is niet delen door 10. als het 1 minder is dan 10 dan gedeeld door 10 1x etc
+        if(score == 0)
+            return "";
+
+        long[] stuffy = new long[(long)Mathf.Floor(Mathf.Log10(_score) + 1)];
         long startingNumber = 1000000000;
         Debug.Log("mathf thing  " + Mathf.Floor(Mathf.Log10(_score) + 1));
+        if(Mathf.Floor(Mathf.Log10(_score) + 1) != 10)
+        {
+            float amount = 10 - Mathf.Floor(Mathf.Log10(_score) + 1);
+            for (int i = 0; i < amount; i++)
+            {
+                startingNumber /= 10;
+            }
+        }
+
         for (int i = 0; i < stuffy.Length; i++)
         {
             stuffy[i] = startingNumber;
@@ -71,6 +77,7 @@ public class UIScore : MonoBehaviour
         {
             
             textNumbers[i] = $"<sprite={painfull[i]}> ";
+            Debug.Log(textNumbers[i]);
         }
 
         string fullString = "";
@@ -79,12 +86,14 @@ public class UIScore : MonoBehaviour
         {
             fullString += textNumbers[i];
         }
-
+        Debug.Log(fullString);
         return fullString;
     }
 
     public void AddPoints(int points)
     {
         _score += points;
+
+        
     }
 }

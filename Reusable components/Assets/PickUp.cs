@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum pickupTypes
+{
+    Health,
+    Projectile,
+    Live,
+    PowerUp
+}
+
+
 public class PickUp : MonoBehaviour
 {
     [SerializeField] private int _addAmount;
-
+    [SerializeField] private pickupTypes _pickupType;
 
     void Start()
     {
@@ -22,7 +31,14 @@ public class PickUp : MonoBehaviour
     {
         if(collision.GetComponent<IPlayer>() != null)
         {
-            collision.GetComponent<AttackProjectile>().projectileAmounts += _addAmount;
+            if (_pickupType == pickupTypes.Health)
+                collision.GetComponent<Health>().HealthInt += _addAmount;
+            else if (_pickupType == pickupTypes.Projectile)
+                collision.GetComponent<AttackProjectile>().projectileAmounts += _addAmount;
+            else if (_pickupType == pickupTypes.Live)
+                collision.GetComponent<Health>().LivesInt += _addAmount;
+            else if (_pickupType == pickupTypes.PowerUp)
+                Debug.Log("POWERUP");
             Destroy(gameObject);
         }
     }

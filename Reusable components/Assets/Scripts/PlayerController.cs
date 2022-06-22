@@ -8,12 +8,11 @@ public class PlayerController : MonoBehaviour, IPlayer
     private SpriteRenderer _spR;
     private IJump _jump;
     private IMovements[] _movement;
-    private IAttack _attack;
-    private IHealth _health;
+    private AttackProjectile _attack;
+    private AttackMellee _attackMellee;
+    private Health _health;
     private slopeMovement _slope;
     private Rigidbody2D _rb;
-    private WalkMovement _walk;
-    private DestoryObject _destroy;
    
 
     [SerializeField]private int movementType;
@@ -28,24 +27,26 @@ public class PlayerController : MonoBehaviour, IPlayer
         _rb = GetComponent<Rigidbody2D>();
         _jump = GetComponent<IJump>();
         _movement = GetComponents<IMovements>();
-        _attack = GetComponent<IAttack>();
-        _health = GetComponent<IHealth>();
-        _walk = GetComponent<WalkMovement>();
+        _attack = GetComponent<AttackProjectile>();
+        _attackMellee = GetComponent<AttackMellee>();
+        _health = GetComponent<Health>();
         _slope = GetComponent<slopeMovement>();
         _defaultGravity = _rb.gravityScale;
-        _destroy = GetComponent<DestoryObject>();
         
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (!_health.knocked)
+        if (!_health.isDead)
         {
-            _jump.GroundCheck();
-            _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
-            _attack.Attack(_kB.projectileAttack, _spR.flipX);
-            
+            if (!_health.knocked)
+            {
+                _jump.GroundCheck();
+                _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
+                _attack.Attack(_kB.projectileAttack, _spR.flipX);
+                _attackMellee.MelleeAttack(_kB.melleeAttack, _spR.flipX);
+            }
         }
         movementSwitcher();
     }
@@ -53,9 +54,12 @@ public class PlayerController : MonoBehaviour, IPlayer
 
     private void FixedUpdate()
     {
-        if (!_health.knocked)
+        if (!_health.isDead)
         {
-            _movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
+            if (!_health.knocked)
+            {
+                _movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
+            }
         }
     }
 

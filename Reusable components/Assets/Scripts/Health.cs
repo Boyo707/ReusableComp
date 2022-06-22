@@ -8,23 +8,24 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] private float _knockBackAngle;
     [SerializeField] private float _knockBackForce;
     [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
-
-    
+    [SerializeField] private int _lives;
 
     private ParticleSystem _particles;
     private Rigidbody2D _rb;
     private bool _knocked;
     private float time;
 
-    public delegate void onDeath();
-    public onDeath OnDeath;
+    private bool _dead;
+
     //public event onDeath OnDeath = delegate { };
 
     //delegate/event maken voor onDeath. Add particle system/active particle, death animation, destory en of voor de player een game over screen met een respawn/retry button?
 
-    public int HealthInt { get { return _health; } }
+    public int HealthInt { get { return _health; } set { _health = value; } }
 
+    public int LivesInt { get { return _lives; } set { _lives = value; } }
 
+    public bool isDead { get { return _dead; } }
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +40,15 @@ public class Health : MonoBehaviour, IHealth
         if (_health <= 0)
         {
             if (GetComponent<IPlayer>() != null)
+            {
+                _dead = true;
                 OnDeath();
-            else
+            }
+            else if (GetComponent<IEnemy>() != null)
                 Destroy(gameObject);
         }
+        else
+            _dead = false;
 
         if (_knocked)
         {
@@ -66,6 +72,7 @@ public class Health : MonoBehaviour, IHealth
     public void TakeDamage(int damage, bool flipX)
     {
         _health -= damage;
+        
         _particles.Play();
         _knocked = true;
         time = _knockBacklag;
@@ -73,16 +80,20 @@ public class Health : MonoBehaviour, IHealth
         
     }
 
-    /*public void OnDeath()
+    public void OnDeath()
     {
         //particle effect loop voor de player??
         _particles.Play();
+        
         Debug.Log("I AM DEAD");
         if(GetComponent<IPlayer>() != null)
         {
-            //enemy/player animparams krijgen de parameter van de death animation.
+            if(knocked == false)
+            {
+                _rb.velocity = Vector2.zero;
+            }
         }
-    }*/
+    }
 
     void knockBack(bool flipX)
     {
