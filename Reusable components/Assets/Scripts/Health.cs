@@ -9,6 +9,7 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] private float _knockBackForce;
     [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
     [SerializeField] private int _lives;
+    [SerializeField] GameObject _deathParticles;
 
     private ParticleSystem _particles;
     private Rigidbody2D _rb;
@@ -46,6 +47,10 @@ public class Health : MonoBehaviour, IHealth
             }
             else if (GetComponent<IEnemy>() != null)
                 Destroy(gameObject);
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         else
             _dead = false;
@@ -72,8 +77,10 @@ public class Health : MonoBehaviour, IHealth
     public void TakeDamage(int damage, bool flipX)
     {
         _health -= damage;
+        Debug.Log("DAMAGEEE++++++++++++++++++++++++++++++");
         
-        _particles.Play();
+        if(_particles != null)
+            _particles.Play();
         _knocked = true;
         time = _knockBacklag;
         knockBack(flipX);
@@ -83,7 +90,8 @@ public class Health : MonoBehaviour, IHealth
     public void OnDeath()
     {
         //particle effect loop voor de player??
-        _particles.Play();
+        if(_particles != null)
+            _particles.Play();
         
         Debug.Log("I AM DEAD");
         if(GetComponent<IPlayer>() != null)
@@ -109,5 +117,11 @@ public class Health : MonoBehaviour, IHealth
 
         
         Debug.Log(Angle);
+    }
+
+    private void OnDestroy()
+    {
+        if(_deathParticles != null)
+            Instantiate(_deathParticles, gameObject.transform.position, Quaternion.identity);
     }
 }

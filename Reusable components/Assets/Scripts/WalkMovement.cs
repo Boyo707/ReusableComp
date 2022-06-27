@@ -10,15 +10,11 @@ public class WalkMovement : MonoBehaviour, IMovements
     [SerializeField] private float _defaultSpeed;
     private float _currentSpeed;
     [SerializeField] private float _sprintSpeed;
-    [SerializeField] private Vector2 _direction;
-    [SerializeField] private bool _onSlope;
-    [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private float force;
 
-    private void Awake()
-    {
-        Debug.Log("awaken");
-    }
+    [SerializeField] private float smoothInputSpeed = 0.2f;
+
+    private Vector2 currentInputVector;
+    private Vector2 smoothInputVelocity;
 
     void Start()
     {
@@ -35,14 +31,16 @@ public class WalkMovement : MonoBehaviour, IMovements
 
     private void NormalMovement(Vector2 inputDirection, bool sprinting)
     {
-        moveDirection = new Vector2(inputDirection.x, 0);
-        _rb.AddForce(Vector2.down * force);
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, inputDirection, ref smoothInputVelocity, smoothInputSpeed);
+        moveDirection = new Vector2(currentInputVector.x, 0);
         _rb.velocity = new Vector2(moveDirection.x * _currentSpeed, _rb.velocity.y); //moet gezet worden in fixed updates.
 
         if (sprinting == true)
             _currentSpeed = _sprintSpeed + _defaultSpeed;
         else
             _currentSpeed = _defaultSpeed;
+
+        
 
     }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyFollowing : MonoBehaviour
 {
-    [SerializeField] GameObject _objectToFollow;
     private Vector2 _direction;
     // Start is called before the first frame update
     void Start()
@@ -18,21 +17,26 @@ public class EnemyFollowing : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
+
+    public void Follow(GameObject target)
     {
-
-        
-            //checked of het links of rechts staat van de enemy
-            float distance = Vector2.Distance(gameObject.transform.position, _objectToFollow.transform.position);
-
-            float otherDistance = _objectToFollow.transform.position.x - gameObject.transform.position.x;
+        float otherDistance = target.transform.position.x - gameObject.transform.position.x;
 
 
-            if (otherDistance > 0)
-                _direction = Vector2.right;
-            else if (otherDistance < 0)
-                _direction = Vector2.left;
-        
+        if (otherDistance > 0)
+            _direction = Vector2.right;
+        else if (otherDistance < 0)
+            _direction = Vector2.left;
+    }
+
+    public void Flee(GameObject target)
+    {
+        float otherDistance = target.transform.position.x - gameObject.transform.position.x;
+
+
+        if (otherDistance < 0)
+            _direction = Vector2.right;
+        else if (otherDistance > 0)
+            _direction = Vector2.left;
     }
 }

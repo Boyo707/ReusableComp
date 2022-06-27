@@ -9,24 +9,33 @@ public class PlayerAnimParams : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D _rB;
-    private Jump _jump;
+    private IJump _jump;
     private KeyboardInput _kB;
     private slopeMovement _slope;
     private Health _health;
+
+    private bool _thisRenderer;
+    private bool _childRenderer;
+
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         _rB = GetComponent<Rigidbody2D>();
-        _jump = GetComponent<Jump>();
+        _jump = GetComponent<IJump>();
         _kB = GetComponent<KeyboardInput>();
         _slope = GetComponent<slopeMovement>();
         _health = GetComponent<Health>();
+        _thisRenderer = GetComponent<SpriteRenderer>().flipX;
+        _childRenderer = GetComponentInChildren<SpriteRenderer>().flipX;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _childRenderer = _thisRenderer;
+
         bool _throw = Input.GetButtonDown("Projectile Attack");
         bool attack = Input.GetButtonDown("Mellee Attack");
         float verticalSpeed = _rB.velocity.y;
@@ -64,6 +73,7 @@ public class PlayerAnimParams : MonoBehaviour
         _legsAnimator.SetBool("Hurt", hurt);
 
 
+        /*
         //bool isGrounded
         anim.SetBool("Moving", moving);
         anim.SetFloat("verticalVelocity", verticalSpeed);
@@ -72,5 +82,6 @@ public class PlayerAnimParams : MonoBehaviour
         anim.SetBool("Sprinting", _kB.Sprinting);
         anim.SetBool("onSlope", _slope.onSlope);
         anim.SetBool("Hurt", _health.knocked);
+        */
     }
 }

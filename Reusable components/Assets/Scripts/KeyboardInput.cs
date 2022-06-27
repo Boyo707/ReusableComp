@@ -41,6 +41,10 @@ public class KeyboardInput : MonoBehaviour
         get { return _moveInput; }
     }
 
+    public bool pauseInput
+    {
+        get { return Input.GetKeyDown(KeyCode.Escape); }
+    }
 
     // Update is called once per frame
     void Update()

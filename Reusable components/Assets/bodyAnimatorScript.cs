@@ -20,8 +20,4 @@ public class bodyAnimatorScript : MonoBehaviour
         _thisRenderer.flipX = _parentRenderer.flipX;
     }
 
-    public void attack()
-    {
-        attackMellee.activateHitBox();
-    }
 }

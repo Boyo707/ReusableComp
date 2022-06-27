@@ -22,7 +22,8 @@ interface IAttack
 
 interface IProjectile
 {
-    void ProjectileSettings(float speed, bool facingLeft, float arch);
+    GameObject itParent { get; set; }
+    void setParent(GameObject parent);
 }
 
 interface ITrajectory

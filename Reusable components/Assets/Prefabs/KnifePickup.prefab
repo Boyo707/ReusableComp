@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _addAmount: 1
+  _projectilePickup: {fileID: 4552813934621821531, guid: f02e934b5ccabc2458d5f674003fbc1e, type: 3}
   _pickupType: 1
+  _pickUpText: {fileID: 0}
 --- !u!61 &2858476462790496033
 BoxCollider2D:
   m_ObjectHideFlags: 0

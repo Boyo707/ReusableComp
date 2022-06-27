@@ -16,15 +16,22 @@ public class Jump : MonoBehaviour, IJump
 
     [SerializeField]private LayerMask _layermask;
     [SerializeField]private jumpTypes _jType;
-    [SerializeField]private float _jumpForce;
-    [SerializeField]private float fallMultiplier;
-    [SerializeField]private float lowJumpMultiplier;
+    [SerializeField] private bool _autoJump;
+    [SerializeField]private float _jumpForce = 15;
+    [SerializeField]private float fallMultiplier = 3;
+    [SerializeField]private float lowJumpMultiplier = 5;
     [SerializeField]private bool _onGround;
-    [SerializeField] private float jumpButtonGrace;
+    [SerializeField] private float jumpButtonGrace = 0.1f;
 
     private float? lastGroundTime;
     private float? jumpButtonPressedTime;
-    
+
+    private RaycastHit2D _jumpCast1;
+    private RaycastHit2D _jumpCast2;
+
+    private float _time;
+
+    private bool _once = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +44,33 @@ public class Jump : MonoBehaviour, IJump
         get { return _onGround; }
     }
 
+    public LayerMask mask
+    {
+        get { return _layermask; }
+    }
+
     public void JumpInput(bool jumpDown, bool jumpHold = false)
     {
-
+        if (_autoJump)
+        {
+            _jumpCast1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.3f), Vector2.right, 0.7f, _layermask);
+            _jumpCast2 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.3f), Vector2.right, 0.7f, _layermask);
+            if (_jumpCast1.collider != null || _jumpCast2.collider != null)
+            {
+                if (_once)
+                {
+                    rigid.velocity = Vector2.up * _jumpForce;
+                    _once = false;
+                }
+                /*if (_time <= 0)
+                    rigid.velocity = Vector2.up * _jumpForce;
+                else
+                    _time -= Time.deltaTime;*/
+            }
+            else
+                _once = true;
+                //_time = 1;
+        }
         if (_onGround)
             lastGroundTime = Time.time;
 
@@ -56,11 +87,6 @@ public class Jump : MonoBehaviour, IJump
                 lastGroundTime = null;
             }
         }
-        /*if (jumpDown && _onGround)
-        {
-            Debug.Log("Jump!");
-            rigid.velocity = Vector2.up * _jumpForce;
-        }*/
 
         if (_jType == jumpTypes.Advanced)
         {
@@ -103,7 +129,9 @@ public class Jump : MonoBehaviour, IJump
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(lengthN, new Vector2(1.16f, 0.08f));
         //Gizmos.DrawWireCube(lengthN, new Vector2(1.10f, 0.5f));
-        
-            
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.3f ), Vector2.right * 0.7f);
+        Gizmos.DrawRay(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.3f), Vector2.left * 0.7f);
     }
 }
