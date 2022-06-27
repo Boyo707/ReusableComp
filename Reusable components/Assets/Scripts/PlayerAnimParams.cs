@@ -34,6 +34,7 @@ public class PlayerAnimParams : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _jump = GetComponent<IJump>();
         _childRenderer = _thisRenderer;
 
         bool _throw = Input.GetButtonDown("Projectile Attack");

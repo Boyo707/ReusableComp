@@ -135,7 +135,7 @@ public class PickUp : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         inside = false;
-        if(collision.gameObject.transform.childCount > 2 && !inside)
+        if(collision.GetComponent<IPlayer>() != null)
             collision.gameObject.transform.GetChild(3).gameObject.SetActive(false);
         
     }

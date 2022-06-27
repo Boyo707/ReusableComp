@@ -40,16 +40,19 @@ public class CanvasScript : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("Quit");
         Application.Quit();
     }
 
     public void Continue()
     {
+        Debug.Log("Continue");
         _pause.SetActive(false);
     }
 
     public void Retry()
     {
+        Debug.Log("Retry");
         SceneManager.LoadScene(_currentScene.name);
     }
 }

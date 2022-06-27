@@ -108,6 +108,6 @@ public class ProjectileSword : MonoBehaviour
         Gizmos.DrawRay(new Vector2(gameObject.transform.position.x - 0.1f, gameObject.transform.position.y), Vector2.left * raycastLength);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(new Vector2(gameObject.transform.position.x - 0.1f, gameObject.transform.position.y), Vector2.right * raycastLength);
+        Gizmos.DrawRay(new Vector2(gameObject.transform.position.x - 0.1f, gameObject.transform.position.y + 0.5f), Vector2.right * raycastLength);
     }
 }
