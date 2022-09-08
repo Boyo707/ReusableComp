@@ -8,7 +8,7 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _UIScoreCanvas;
     [SerializeField] GameObject _target;
 
-    private WalkMovement _movement;
+    private HorizontalMovement _movement;
     private EnemyFollowing _follow;
     private AttackMellee _attack;
     private SpriteRenderer _spR;
@@ -19,7 +19,7 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
     void Start()
     {
         _health = GetComponent<Health>();
-        _movement = GetComponent<WalkMovement>();
+        _movement = GetComponent<HorizontalMovement>();
         _follow = GetComponent<EnemyFollowing>();
         _attack = GetComponent<AttackMellee>();
         _spR = GetComponent<SpriteRenderer>();
@@ -31,14 +31,14 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
     {
         if (!_health.knocked)
         {
-            _jump.JumpInput(true);
+            //_jump.JumpInput(true);
 
 
             _attack.Attack(true, _spR.flipX);
 
             _follow.Follow(_target);
 
-            _movement.MoveInput(_follow.moveDir, true);
+            //_movement.MoveInput(_follow.moveDir, true);
         }
     }
 

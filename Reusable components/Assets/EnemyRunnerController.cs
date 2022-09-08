@@ -9,7 +9,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _target;
     [SerializeField] private ParticleSystem _sweatParticles;
 
-    private WalkMovement movements;
+    private HorizontalMovement movements;
     private EnemyFollowing _follow;
     private AttackProjectile _attack;
     private SpriteRenderer _spR;
@@ -27,7 +27,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
     {
         _time = 1.2f;
         _health = GetComponent<Health>();
-        movements = GetComponent<WalkMovement>();
+        movements = GetComponent<HorizontalMovement>();
         _follow = GetComponent<EnemyFollowing>();
         _attack = GetComponent<AttackProjectile>();
         _spR = GetComponent<SpriteRenderer>();
@@ -42,7 +42,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
         {
             float distance = _target.transform.position.x - gameObject.transform.position.x;
 
-            _jump.JumpInput(true);
+            //_jump.JumpInput(true);
 
             if (_attack.projectileAmounts != 0)
             {
@@ -53,7 +53,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
                 else
                 {
                     _follow.Follow(_target);
-                    movements.MoveInput(_follow.moveDir);
+                    //movements.MoveInput(_follow.moveDir);
                 }
 
             }
@@ -64,7 +64,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
                 {
                     _sweatParticles.Play();
                     _follow.Flee(_target);
-                    movements.MoveInput(_follow.moveDir, true);
+                    //movements.MoveInput(_follow.moveDir, true);
                 }
                 else if (_time > 0)
                 {

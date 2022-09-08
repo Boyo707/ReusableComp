@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slopeMovement : MonoBehaviour, IMovements
+public class slopeMovement : MonoBehaviour//, IMovements
 {
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float maxSlopeAngle;

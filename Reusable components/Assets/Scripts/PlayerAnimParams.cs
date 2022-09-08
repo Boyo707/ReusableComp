@@ -57,19 +57,19 @@ public class PlayerAnimParams : MonoBehaviour
 
 
 
-        bool onGround = _jump.onGround;
+        //bool onGround = _jump.onGround;
 
         _bodyAnimator.SetFloat("VerticalVelocity", verticalSpeed);
         _bodyAnimator.SetBool("Moving", moving);
         _bodyAnimator.SetBool("Sprinting", sprinting);
-        _bodyAnimator.SetBool("OnGround", onGround);
+        //_bodyAnimator.SetBool("OnGround", onGround);
         _bodyAnimator.SetBool("OnSlope", onSlope);
         _bodyAnimator.SetBool("Hurt", hurt);
 
         _legsAnimator.SetFloat("VerticalVelocity", verticalSpeed);
         _legsAnimator.SetBool("Moving", moving);
         _legsAnimator.SetBool("Sprinting", sprinting);
-        _legsAnimator.SetBool("OnGround", onGround);
+        //_legsAnimator.SetBool("OnGround", onGround);
         _legsAnimator.SetBool("OnSlope", onSlope);
         _legsAnimator.SetBool("Hurt", hurt);
 

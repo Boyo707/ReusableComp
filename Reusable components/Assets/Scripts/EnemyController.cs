@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour, IEnemy
             if (!_health.knocked)
             {
                 bool attack = true;
-                movements.MoveInput(_follow.moveDir);
+                //movements.MoveInput(_follow.moveDir);
                 _attack.Attack(attack, _spR.flipX);
             }
     }

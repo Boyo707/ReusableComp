@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour, IPlayer
         _slope = GetComponent<slopeMovement>();
         _defaultGravity = _rb.gravityScale;
         _JORDI = GetComponent<Jump>();
-
-        Debug.Log(_JORDI.mask.value);
     }
 
     // Update is called once per frame
@@ -47,7 +45,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         {
             if (!_health.knocked)
             {
-                _jump.GroundCheck();
+                //_jump.GroundCheck();
                 _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
                 _attack.Attack(_kB.projectileAttack, _spR.flipX);
                 _attackMellee.Attack(_kB.melleeAttack, _spR.flipX);
@@ -63,7 +61,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         {
             if (!_health.knocked)
             {
-                _movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
+                //_movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
             }
         }
     }
@@ -84,7 +82,7 @@ public class PlayerController : MonoBehaviour, IPlayer
             time = 0.2f;
         }
 
-        if (_slope.onSlope == false && _jump.onGround)
+        /*if (_slope.onSlope == false && _jump.onGround)
             movementType = 0;
         else if (!_jump.onGround)
         {
@@ -94,7 +92,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         {
             
             movementType = 1;
-        }
+        }*/
 
         
 

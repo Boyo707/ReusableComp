@@ -9,7 +9,7 @@ public class EnemySpearThrowerController : MonoBehaviour, IEnemy
     [SerializeField] private GameObject _target;
     [SerializeField] private float _maxDistance;
 
-    private WalkMovement _movement;
+    private HorizontalMovement _movement;
     private EnemyFollowing _follow;
     private AttackProjectile _attack;
     private Health _health;
@@ -22,7 +22,7 @@ public class EnemySpearThrowerController : MonoBehaviour, IEnemy
         _health = GetComponent<Health>();
         _spR = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
-        _movement = GetComponent<WalkMovement>();
+        _movement = GetComponent<HorizontalMovement>();
         _follow = GetComponent<EnemyFollowing>();
     }
 
@@ -36,18 +36,18 @@ public class EnemySpearThrowerController : MonoBehaviour, IEnemy
 
             if (distance <= _maxDistance && distance > 0)
             {
-                _movement.MoveInput(Vector2.zero);
+                //_movement.MoveInput(Vector2.zero);
                 _attack.Attack(true, _spR.flipX);
             }
             else if (distance < 0 && distance >= -_maxDistance)
             {
-                _movement.MoveInput(Vector2.zero);
+                //_movement.MoveInput(Vector2.zero);
                 _attack.Attack(true, _spR.flipX);
             }
             else
             {
                 _follow.Follow(_target);
-                _movement.MoveInput(_follow.moveDir);
+                //_movement.MoveInput(_follow.moveDir);
             }
 
 

@@ -4,15 +4,12 @@ using UnityEngine;
 
 interface IMovements
 {
-    void MoveInput(Vector2 direction ,bool sprinting = false);
+    void MoveInput(float direction ,bool sprinting = false);
 }
 
 interface IJump // double jump als 2e class
 {
-    bool onGround { get; }
-
-    void JumpInput(bool jumpDown, bool jumpHold = false);
-    void GroundCheck();    
+    void JumpInput(bool isGrounded, bool jumpDown, bool jumpHold = false);
 }
 
 interface IAttack

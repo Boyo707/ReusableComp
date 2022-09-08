@@ -8,7 +8,7 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _UIScoreCanvas;
     [SerializeField] GameObject _target;
 
-    private WalkMovement _movements;
+    private HorizontalMovement _movements;
     private EnemyFollowing _follow;
     private AttackMellee _attack;
     private SpriteRenderer _spR;
@@ -24,7 +24,7 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     void Start()
     {
         _spR = GetComponent<SpriteRenderer>();
-        _movements = GetComponent<WalkMovement>();
+        _movements = GetComponent<HorizontalMovement>();
         _jump = GetComponent<Jump>();
         _health = GetComponent<Health>();
         _attack = GetComponent<AttackMellee>();
@@ -36,14 +36,14 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     {
         if (!_health.knocked)
         {
-            _jump.JumpInput(true);
+            //_jump.JumpInput(true);
 
 
             _attack.Attack(true, _spR.flipX);
 
             _follow.Follow(_target);
 
-            _movements.MoveInput(_follow.moveDir, true);
+            //_movements.MoveInput(_follow.moveDir, true);
 
 
         }
