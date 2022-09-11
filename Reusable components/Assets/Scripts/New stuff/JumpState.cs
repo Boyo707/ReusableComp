@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class JumpState : MonoBehaviour, IJump
 {
 
-    [SerializeField] private bool _autoJump;
-    [SerializeField] private float _jumpForce = 15;
+    [Header("Required Components")]
+    [SerializeField] private Rigidbody2D _rb;
 
-    [Header("Fall when let go of button")]
+    [Header("Jump Settings")]
+    [SerializeField] private float _jumpForce = 15;
     [SerializeField] private float fallMultiplier = 3;
     [SerializeField] private float lowJumpMultiplier = 5;
+
     [Header("Coyote Jump")]
     [SerializeField] private float jumpButtonGrace = 0.1f;
+
+    [Header("Misc")]
+    [SerializeField] private bool _autoJump;
+    [SerializeField] private float _doubleJumpAmount;
+
 
     private float? lastGroundTime;
     private float? jumpButtonPressedTime;
 
-    [SerializeField]private float _doubleJumpAmount;
+    
 
     private float temp;
 
@@ -29,7 +37,7 @@ public class JumpState : MonoBehaviour, IJump
 
 
 
-    public void JumpInput(Rigidbody2D rb, bool isGrounded, bool jumpDown, bool jumpHold = false)
+    public void JumpInput(bool isGrounded, bool jumpDown, bool jumpHold = false)
     {
 
         if (isGrounded)
@@ -45,7 +53,7 @@ public class JumpState : MonoBehaviour, IJump
         {
             if (Time.time - jumpButtonPressedTime <= jumpButtonGrace)
             {
-                rb.velocity = Vector2.up * _jumpForce;
+                _rb.velocity = Vector2.up * _jumpForce;
                 jumpButtonPressedTime = null;
                 lastGroundTime = null;
             }
@@ -58,17 +66,17 @@ public class JumpState : MonoBehaviour, IJump
                     Debug.Log("2");
                     jumpButtonPressedTime = null;
                     lastGroundTime = null;
-                    rb.velocity = Vector2.up * _jumpForce / 1.25f;
+                    _rb.velocity = Vector2.up * _jumpForce / 1.25f;
                     _doubleJumpAmount -= 1;
                 }
 
-        if (rb.velocity.y < 0)
+        if (_rb.velocity.y < 0)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            _rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb.velocity.y > 0 && !jumpHold)
+        else if (_rb.velocity.y > 0 && !jumpHold)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            _rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
     }

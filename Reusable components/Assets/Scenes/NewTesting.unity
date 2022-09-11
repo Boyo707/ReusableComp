@@ -1974,6 +1974,7 @@ GameObject:
   - component: {fileID: 1666290209}
   - component: {fileID: 1666290217}
   - component: {fileID: 1666290216}
+  - component: {fileID: 1666290219}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2005,6 +2006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2c9c53489f39849882bc9bebeb7590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 1666290212}
+  _spR: {fileID: 1666290214}
   _defaultSpeed: 7
   _sprintSpeed: 6
   _smoothInputSpeed: 0.083
@@ -2160,11 +2163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7377dc47063c886449780577c7870a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _autoJump: 0
+  _rb: {fileID: 1666290212}
   _jumpForce: 15
   fallMultiplier: 3
   lowJumpMultiplier: 5
   jumpButtonGrace: 0.1
+  _autoJump: 0
   _doubleJumpAmount: 0
 --- !u!61 &1666290218
 BoxCollider2D:
@@ -2192,3 +2196,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3020954, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1666290219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666290208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb7249307c4cd941b8f1bb32c934344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 0
+  _knockBackAngle: 0
+  _knockBackForce: 0
+  _knockBacklag: 0
+  _lives: 0
+  _deathParticles: {fileID: 0}

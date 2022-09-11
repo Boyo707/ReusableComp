@@ -31,8 +31,8 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _jump.JumpInput(_rb, _gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
-        _walkMovement.MoveInput(_rb, _kBI.HorizontalInput, _kBI.Sprinting);
+        _jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
+        _walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
     }
 
 }

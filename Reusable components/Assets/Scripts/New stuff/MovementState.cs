@@ -11,17 +11,24 @@ using UnityEngine.Serialization;
 using UnityEngine.XR;
 using static UnityEngine.UI.Button;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class MovementState : MonoBehaviour, IMovements
 {
-    private SpriteRenderer spriteRenderer;
-    private float moveDirection;
+    [Header("Required Components")]
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private SpriteRenderer _spR;
+    
+    [Header("Speed Values")]
     [SerializeField] private float _defaultSpeed;
-    private float _currentSpeed;
     [SerializeField] private float _sprintSpeed;
 
+    [Header("Smoothness")]
     [SerializeField] private float _smoothInputSpeed = 0.083f;
-
     [SerializeField] private float _smoothSprintTransition = 0.5f;
+
+
+    private float moveDirection;
+    private float _currentSpeed;
 
     private Vector2 currentInputVector;
     private Vector2 smoothInputVelocity;
@@ -54,13 +61,8 @@ public class MovementState : MonoBehaviour, IMovements
         Debug.Log("Pffffttt");
     }*/
 
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
-
-    public void MoveInput(Rigidbody2D rb, float inputDirection, bool sprinting = false)
+    public void MoveInput(float inputDirection, bool sprinting = false)
     {
         if (sprinting == true)
         {
@@ -73,20 +75,20 @@ public class MovementState : MonoBehaviour, IMovements
             _currentSpeed = _defaultSpeed;
         }
 
-        currentInputVector = Vector2.SmoothDamp(currentInputVector, new Vector2(inputDirection, rb.velocity.y), ref smoothInputVelocity, _smoothInputSpeed);
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, new Vector2(inputDirection, _rb.velocity.y), ref smoothInputVelocity, _smoothInputSpeed);
         moveDirection = currentInputVector.x;
 
-        rb.velocity = new Vector2(moveDirection * _currentSpeed, rb.velocity.y); //moet gezet worden in fixed updates.
+        _rb.velocity = new Vector2(moveDirection * _currentSpeed, _rb.velocity.y); //moet gezet worden in fixed updates.
 
 
 
-        if (rb.velocity.x > 0)
+        if (_rb.velocity.x > 0)
         {
-            spriteRenderer.flipX = false;
+            _spR.flipX = false;
         }
-        else if(rb.velocity.x < 0)
+        else if(_rb.velocity.x < 0)
         {
-            spriteRenderer.flipX = true;
+            _spR.flipX = true;
         }
     }
 
