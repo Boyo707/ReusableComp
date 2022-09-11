@@ -21,7 +21,7 @@ public class DoubleJumpPowerUp : MonoBehaviour
         if(collision.GetComponent<IPlayer>() != null)
         {
             
-            Destroy(collision.GetComponent<Jump>());
+            Destroy(collision.GetComponent<JumpState>());
             collision.gameObject.AddComponent<DoubleJump>();
 
             Destroy(gameObject);

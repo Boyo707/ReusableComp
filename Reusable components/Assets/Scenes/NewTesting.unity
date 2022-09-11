@@ -365,23 +365,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1131547144}
     m_ColliderPaths:
-    - - X: -140000041
-        Y: -19999900
-      - X: -140000100
-        Y: -19999959
-      - X: -140000100
-        Y: -40000041
-      - X: -140000041
-        Y: -40000100
-      - X: -130000100
-        Y: -40000100
-      - X: -130000100
-        Y: -50000041
-      - X: -130000041
-        Y: -50000100
-      - X: 170000041
-        Y: -50000100
-      - X: 170000100
+    - - X: 170000100
         Y: -50000041
       - X: 170000100
         Y: 60000041
@@ -417,12 +401,38 @@ CompositeCollider2D:
         Y: 10000041
       - X: -89999959
         Y: 10000100
-      - X: -130000041
+      - X: -129999959
         Y: 10000100
+      - X: -129999942
+        Y: 10000083
+      - X: -129999884
+        Y: 10000054
+      - X: -129999900
+        Y: 9999987
+      - X: -129999900
+        Y: -41
+      - X: -129999959
+        Y: -100
       - X: -130000100
-        Y: 10000041
+        Y: -100
       - X: -130000100
         Y: -19999900
+      - X: -140000041
+        Y: -19999900
+      - X: -140000100
+        Y: -19999959
+      - X: -140000100
+        Y: -40000041
+      - X: -140000041
+        Y: -40000100
+      - X: -130000100
+        Y: -40000100
+      - X: -130000100
+        Y: -50000041
+      - X: -130000041
+        Y: -50000100
+      - X: 170000041
+        Y: -50000100
   m_CompositePaths:
     m_Paths:
     - - {x: 16.999975, y: -5.00001}
@@ -437,7 +447,7 @@ CompositeCollider2D:
       - {x: -6.0000253, y: -0.99999}
       - {x: -8.99999, y: -0.9999606}
       - {x: -9.000026, y: 1.00001}
-      - {x: -13.00001, y: 0.9999748}
+      - {x: -12.99999, y: 0.9999694}
       - {x: -13.000039, y: -1.99999}
       - {x: -14.00001, y: -2.0000253}
       - {x: -13.999974, y: -4.00001}
@@ -1654,7 +1664,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1820,6 +1830,14 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 48e73f2eb76dac8429405c69b3d96dcc, type: 2}
   - m_RefCount: 63
     m_Data: {fileID: 11400000, guid: f3f5f95263bb46d40a1efb49f99b12ef, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 25
     m_Data: {fileID: -691326205, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
@@ -1827,8 +1845,8 @@ Tilemap:
     m_Data: {fileID: -2025906126, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 238593378, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1799554848, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 5
     m_Data: {fileID: -1851532700, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
   - m_RefCount: 8
@@ -1839,6 +1857,14 @@ Tilemap:
     m_Data: {fileID: -887832568, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
   - m_RefCount: 63
     m_Data: {fileID: -193284459, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1799554848, guid: 5f9ca01e3412f7647b2a267db829db5f, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 126
     m_Data:
@@ -1864,8 +1890,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -14, y: -5, z: 0}
-  m_Size: {x: 31, y: 11, z: 1}
+  m_Origin: {x: -46, y: -5, z: 0}
+  m_Size: {x: 63, y: 14, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1940,6 +1966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666290215}
   - component: {fileID: 1666290214}
+  - component: {fileID: 1666290218}
   - component: {fileID: 1666290213}
   - component: {fileID: 1666290212}
   - component: {fileID: 1666290211}
@@ -1978,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2c9c53489f39849882bc9bebeb7590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultSpeed: 5
+  _defaultSpeed: 7
   _sprintSpeed: 6
   _smoothInputSpeed: 0.083
   _smoothSprintTransition: 5.5
@@ -2022,7 +2049,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666290208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 68818bbcb75170540955612886482424, type: 2}
   m_IsTrigger: 0
@@ -2091,7 +2118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666290208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4698825, y: 0.47, z: 0}
+  m_LocalPosition: {x: -11.26, y: 3.35, z: -0.16411404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2113,7 +2140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   _onGround: 0
   _boxYPosition: -1
   _boxXPosition: -0.05
@@ -2138,3 +2165,30 @@ MonoBehaviour:
   fallMultiplier: 3
   lowJumpMultiplier: 5
   jumpButtonGrace: 0.1
+  _doubleJumpAmount: 0
+--- !u!61 &1666290218
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666290208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 68818bbcb75170540955612886482424, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.049612045, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3020954, y: 2}
+  m_EdgeRadius: 0

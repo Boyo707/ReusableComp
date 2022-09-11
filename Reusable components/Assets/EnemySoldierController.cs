@@ -8,11 +8,11 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _UIScoreCanvas;
     [SerializeField] GameObject _target;
 
-    private HorizontalMovement _movements;
+    private MovementState _movements;
     private EnemyFollowing _follow;
     private AttackMellee _attack;
     private SpriteRenderer _spR;
-    private Jump _jump;
+    private JumpState _jump;
     private bool _flipped;
     private Vector2 _direction;
     private Health _health;
@@ -24,8 +24,8 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     void Start()
     {
         _spR = GetComponent<SpriteRenderer>();
-        _movements = GetComponent<HorizontalMovement>();
-        _jump = GetComponent<Jump>();
+        _movements = GetComponent<MovementState>();
+        _jump = GetComponent<JumpState>();
         _health = GetComponent<Health>();
         _attack = GetComponent<AttackMellee>();
         _follow = GetComponent<EnemyFollowing>();

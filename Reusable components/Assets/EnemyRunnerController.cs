@@ -9,11 +9,11 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _target;
     [SerializeField] private ParticleSystem _sweatParticles;
 
-    private HorizontalMovement movements;
+    private MovementState movements;
     private EnemyFollowing _follow;
     private AttackProjectile _attack;
     private SpriteRenderer _spR;
-    private Jump _jump;
+    private JumpState _jump;
     private bool _flipped;
     private Vector2 _direction;
     private Health _health;
@@ -27,11 +27,11 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
     {
         _time = 1.2f;
         _health = GetComponent<Health>();
-        movements = GetComponent<HorizontalMovement>();
+        movements = GetComponent<MovementState>();
         _follow = GetComponent<EnemyFollowing>();
         _attack = GetComponent<AttackProjectile>();
         _spR = GetComponent<SpriteRenderer>();
-        _jump = GetComponent<Jump>();
+        _jump = GetComponent<JumpState>();
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour, IPlayer
     private KeyboardInput _kB;
     private SpriteRenderer _spR;
     private IJump _jump;
-    private Jump _JORDI;
+    private JumpState _JORDI;
     private IMovements[] _movement;
     private AttackProjectile _attack;
     private AttackMellee _attackMellee;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         _health = GetComponent<Health>();
         _slope = GetComponent<slopeMovement>();
         _defaultGravity = _rb.gravityScale;
-        _JORDI = GetComponent<Jump>();
+        _JORDI = GetComponent<JumpState>();
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour, IPlayer
             if (!_health.knocked)
             {
                 //_jump.GroundCheck();
-                _jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
+                //_jump.JumpInput(_kB.jumpDown, _kB.jumpHold);
                 _attack.Attack(_kB.projectileAttack, _spR.flipX);
                 _attackMellee.Attack(_kB.melleeAttack, _spR.flipX);
             }

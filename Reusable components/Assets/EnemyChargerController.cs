@@ -8,22 +8,19 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
     [SerializeField] GameObject _UIScoreCanvas;
     [SerializeField] GameObject _target;
 
-    private HorizontalMovement _movement;
+
     private EnemyFollowing _follow;
     private AttackMellee _attack;
     private SpriteRenderer _spR;
-    private Jump _jump;
 
     private Health _health;
     // Start is called before the first frame update
     void Start()
     {
         _health = GetComponent<Health>();
-        _movement = GetComponent<HorizontalMovement>();
         _follow = GetComponent<EnemyFollowing>();
         _attack = GetComponent<AttackMellee>();
         _spR = GetComponent<SpriteRenderer>();
-        _jump = GetComponent<Jump>();
     }
 
     // Update is called once per frame

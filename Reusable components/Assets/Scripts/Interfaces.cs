@@ -4,12 +4,12 @@ using UnityEngine;
 
 interface IMovements
 {
-    void MoveInput(float direction ,bool sprinting = false);
+    void MoveInput(Rigidbody2D rb, float direction ,bool sprinting = false);
 }
 
 interface IJump // double jump als 2e class
 {
-    void JumpInput(bool isGrounded, bool jumpDown, bool jumpHold = false);
+    void JumpInput(Rigidbody2D rb, bool isGrounded, bool jumpDown, bool jumpHold = false);
 }
 
 interface IAttack
