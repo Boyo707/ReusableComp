@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
 
 public class NewPlayerController : MonoBehaviour
@@ -13,6 +14,11 @@ public class NewPlayerController : MonoBehaviour
 
 
     private Rigidbody2D _rb;
+
+    [SerializeField] private float _damageAmount;
+    [SerializeField] private LayerMask _damagableLayers;
+
+    [SerializeField] private float _knockBackForce;
 
 
     // Start is called before the first frame update

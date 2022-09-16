@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IHealth 
 {
-    [SerializeField] private int _health;
+    [SerializeField] private float _health = 10;
     [SerializeField] private float _knockBackAngle;
     [SerializeField] private float _knockBackForce;
     [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
@@ -22,7 +23,7 @@ public class Health : MonoBehaviour, IHealth
 
     //delegate/event maken voor onDeath. Add particle system/active particle, death animation, destory en of voor de player een game over screen met een respawn/retry button?
 
-    public int HealthInt { get { return _health; } set { _health = value; } }
+    public float HealthInt { get { return _health; } set { _health = value; } }
 
     public int LivesInt { get { return _lives; } set { _lives = value; } }
 
@@ -87,6 +88,24 @@ public class Health : MonoBehaviour, IHealth
         
     }
 
+    public void TakeDamage2(float damage)
+    {
+        
+        _health -= damage;
+        Debug.Log($"Taking {damage} damage! \nCurrent health is {_health}");
+
+    }
+    public void TakeDamage2(float damage, float knockBackForce, float knockBackAngle)
+    {
+        _health -= damage;
+
+        Debug.Log($"Taking {damage} damage!   Current health is {_health}");
+
+        KnockBack(knockBackForce, knockBackAngle);
+        
+
+    }
+
     public void OnDeath()
     {
         //particle effect loop voor de player??
@@ -101,6 +120,13 @@ public class Health : MonoBehaviour, IHealth
                 _rb.velocity = Vector2.zero;
             }
         }
+    }
+
+    void KnockBack(float knockBackForce, float knockBackAngle)
+    {
+        var Angle = new Vector2(Mathf.Cos(knockBackAngle * Mathf.Deg2Rad) * knockBackForce, Mathf.Sin(knockBackAngle * Mathf.Deg2Rad) * knockBackForce);
+        _rb.velocity = Angle;
+            
     }
 
     void knockBack(bool flipX)
