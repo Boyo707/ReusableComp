@@ -29,12 +29,12 @@ public class CanvasScript : MonoBehaviour
             _pause.SetActive(true);
 
 
-        if (_player.GetComponent<Health>().isDead)
+        /*if (_player.GetComponent<Health>().isDead)
         {
             //_paused = false;
             _pause.SetActive(false);
             _gameOver.SetActive(true);
-        }
+        }*/
 
     }
 

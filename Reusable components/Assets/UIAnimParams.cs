@@ -20,6 +20,6 @@ public class UIAnimParams : MonoBehaviour
 
 
 
-        healthBarAnimator.SetBool("Hurt", _health.knocked);
+        //healthBarAnimator.SetBool("Hurt", _health.knocked);
     }
 }

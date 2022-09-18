@@ -3,42 +3,72 @@ using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
 
-public class NewPlayerController : MonoBehaviour
+public class NewPlayerController : MonoBehaviour, IEntityController
 {
+    [SerializeField] private PhysicsMaterial2D _noFrictionMaterial;
+    [SerializeField] private PhysicsMaterial2D _FrictionMaterial;
+
     private MovementState _walkMovement;
     private KeyboardInputSystem _kBI;
     private JumpState _jump;
     private GroundDetection _gD;
-    private IdleState _idle;
-    private StateBase _stateBase;
 
+    private Rigidbody2D _rb2D;
 
-    private Rigidbody2D _rb;
+    private bool _knockedBack;
+    private float _knockedDuration;
 
-    [SerializeField] private float _damageAmount;
-    [SerializeField] private LayerMask _damagableLayers;
-
-    [SerializeField] private float _knockBackForce;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _walkMovement = GetComponent<MovementState>();
+        
         _kBI = GetComponent<KeyboardInputSystem>();
-        _jump = GetComponent<JumpState>();
         _gD = GetComponent<GroundDetection>();
-        _idle = GetComponent<IdleState>();
-        _stateBase = GetComponent<StateBase>();
+        _walkMovement = GetComponent<MovementState>();
+        _jump = GetComponent<JumpState>();
 
-        _rb = GetComponent<Rigidbody2D>();
+        _rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //a way to disable it at knockback.
+        if (_knockedDuration > 0)
+        {
+            _knockedDuration -= Time.deltaTime;
+            _knockedBack = true;
+
+            if (_gD.OnGround())
+                _rb2D.sharedMaterial = _FrictionMaterial;
+            else
+                _rb2D.sharedMaterial = _noFrictionMaterial;
+        }
+        else
+        {
+            _rb2D.sharedMaterial = _noFrictionMaterial;
+            _knockedBack = false;
+        }
+
+        if(!_knockedBack)
+            EntityControlls();
+    }
+
+    private void EntityControlls()
+    {
         _jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
         _walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
     }
 
+    private void UIInputs()
+    {
+        //maybe
+    }
+
+    public void DisableEntityControlls(float duration)
+    {
+        _knockedDuration = duration;
+    }
 }

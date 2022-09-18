@@ -28,12 +28,12 @@ public class EnemyController : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-            if (!_health.knocked)
+            /*if (!_health.knocked)
             {
                 bool attack = true;
                 //movements.MoveInput(_follow.moveDir);
                 _attack.Attack(attack, _spR.flipX);
-            }
+            }*/
     }
 
     private void OnDestroy()

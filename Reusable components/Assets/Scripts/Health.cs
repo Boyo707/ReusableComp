@@ -5,20 +5,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, IHealth 
 {
+    [SerializeField] private bool _invincible = false;
+
     [SerializeField] private float _health = 10;
-    [SerializeField] private float _knockBackAngle;
-    [SerializeField] private float _knockBackForce;
-    [SerializeField] [Range(0.0f, 1.5f)] private float _knockBacklag;
-    [SerializeField] private int _lives;
-    [SerializeField] GameObject _deathParticles;
+    [SerializeField] private int _lives = 3;
 
-    private ParticleSystem _particles;
-    private Rigidbody2D _rb;
-    private bool _knocked;
-    private float time;
-
-    private bool _dead;
-
+    
     //public event onDeath OnDeath = delegate { };
 
     //delegate/event maken voor onDeath. Add particle system/active particle, death animation, destory en of voor de player een game over screen met een respawn/retry button?
@@ -27,127 +19,9 @@ public class Health : MonoBehaviour, IHealth
 
     public int LivesInt { get { return _lives; } set { _lives = value; } }
 
-    public bool isDead { get { return _dead; } }
-
-    // Start is called before the first frame update
-    void Start()
+    public void TakeDamage(float damage)
     {
-        _particles = GetComponent<ParticleSystem>();
-        _rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_health <= 0)
-        {
-            if (GetComponent<IPlayer>() != null)
-            {
-                _dead = true;
-                OnDeath();
-            }
-            else if (GetComponent<IEnemy>() != null)
-                Destroy(gameObject);
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        else
-            _dead = false;
-
-        if (_knocked)
-        {
-            if (time > 0)
-            {
-                time -= Time.deltaTime;
-
-            }
-            else
-                _knocked = false;
-        }
-    }
-
-    public bool knocked
-    {
-        get { return _knocked; }
-    }
-
-    //UI maken voor de player waar je de health kan zien.
-
-    public void TakeDamage(int damage, bool flipX)
-    {
-        _health -= damage;
-        Debug.Log("DAMAGEEE++++++++++++++++++++++++++++++");
-        
-        if(_particles != null)
-            _particles.Play();
-        _knocked = true;
-        time = _knockBacklag;
-        knockBack(flipX);
-        
-    }
-
-    public void TakeDamage2(float damage)
-    {
-        
-        _health -= damage;
-        Debug.Log($"Taking {damage} damage! \nCurrent health is {_health}");
-
-    }
-    public void TakeDamage2(float damage, float knockBackForce, float knockBackAngle)
-    {
-        _health -= damage;
-
-        Debug.Log($"Taking {damage} damage!   Current health is {_health}");
-
-        KnockBack(knockBackForce, knockBackAngle);
-        
-
-    }
-
-    public void OnDeath()
-    {
-        //particle effect loop voor de player??
-        if(_particles != null)
-            _particles.Play();
-        
-        Debug.Log("I AM DEAD");
-        if(GetComponent<IPlayer>() != null)
-        {
-            if(knocked == false)
-            {
-                _rb.velocity = Vector2.zero;
-            }
-        }
-    }
-
-    void KnockBack(float knockBackForce, float knockBackAngle)
-    {
-        var Angle = new Vector2(Mathf.Cos(knockBackAngle * Mathf.Deg2Rad) * knockBackForce, Mathf.Sin(knockBackAngle * Mathf.Deg2Rad) * knockBackForce);
-        _rb.velocity = Angle;
-            
-    }
-
-    void knockBack(bool flipX)
-    {
-        ///Moet naar de richting dat de enemy faced
-        ///verander het naar sprite flip x :(
-        Vector2 Angle = Vector2.zero;
-        Vector2 lol = new Vector2(100, 0);
-        if (flipX)
-            Angle = new Vector2(Mathf.Cos((45 + 180) * Mathf.Deg2Rad) * _knockBackForce, Mathf.Sin(45 * Mathf.Deg2Rad) * _knockBackForce);
-        else
-            Angle = new Vector2(Mathf.Cos(45 * Mathf.Deg2Rad) * _knockBackForce, Mathf.Sin(45 * Mathf.Deg2Rad) * _knockBackForce);
-        _rb.velocity = Angle;
-
-        
-        Debug.Log(Angle);
-    }
-
-    private void OnDestroy()
-    {
-        if(_deathParticles != null)
-            Instantiate(_deathParticles, gameObject.transform.position, Quaternion.identity);
+        if(!_invincible)
+            _health -= damage;
     }
 }

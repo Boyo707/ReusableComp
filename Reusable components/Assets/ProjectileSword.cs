@@ -71,14 +71,14 @@ public class ProjectileSword : MonoBehaviour
             {
                 if (collision.GetComponent<IEnemy>() != null)
                 {
-                    collision.GetComponent<IHealth>().TakeDamage(_damage, _spr.flipX);
+                    //collision.GetComponent<IHealth>().TakeDamage(_damage, _spr.flipX);
                 }
             }
             else if (GetComponentInParent<IEnemy>() != null)
             {
                 if (collision.GetComponent<IPlayer>() != null)
                 {
-                    collision.GetComponent<IHealth>().TakeDamage(_damage, _spr.flipX);
+                    //collision.GetComponent<IHealth>().TakeDamage(_damage, _spr.flipX);
                 }
             }
         }

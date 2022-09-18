@@ -7,6 +7,11 @@ interface IMovements
     void MoveInput(float direction ,bool sprinting = false);
 }
 
+interface IEntityController
+{
+    void DisableEntityControlls(float duration);
+}
+
 interface IJump // double jump als 2e class
 {
     void JumpInput(bool isGrounded, bool jumpDown, bool jumpHold = false);
@@ -31,9 +36,7 @@ interface ITrajectory
 interface IHealth
 {
     float HealthInt { get; }
-    void TakeDamage(int damage, bool spriteFlippedX);
-    bool knocked { get; }
-    //void OnDeath();
+    void TakeDamage(float damage);
 }
 
 

@@ -26,7 +26,7 @@ public class ProjectileSpear : MonoBehaviour, IEnemy
         {
             if (GetComponentInParent<IEnemy>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(2, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(2, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);
@@ -36,7 +36,7 @@ public class ProjectileSpear : MonoBehaviour, IEnemy
         {
             if (GetComponentInParent<IPlayer>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(2, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(2, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);

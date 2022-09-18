@@ -34,7 +34,7 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-        if (!_health.knocked)
+        /*if (!_health.knocked)
         {
             //_jump.JumpInput(true);
 
@@ -46,7 +46,7 @@ public class EnemySoldierController : MonoBehaviour, IEnemy
             //_movements.MoveInput(_follow.moveDir, true);
 
 
-        }
+        }*/
     }
     private void OnDestroy()
     {

@@ -32,7 +32,7 @@ public class ProjectileArrow : MonoBehaviour
         {
             if (GetComponentInParent<IEnemy>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);
@@ -42,7 +42,7 @@ public class ProjectileArrow : MonoBehaviour
         {
             if (GetComponentInParent<IPlayer>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);

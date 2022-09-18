@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackMellee : MonoBehaviour, IAttack
 {
+    
     [SerializeField] private int _damage;
     [SerializeField] [Range(0.0f, 2f)] private float boxWith;
     [SerializeField] [Range(0.0f, 2f)] private float boxLength;
@@ -83,7 +84,7 @@ public class AttackMellee : MonoBehaviour, IAttack
             if (boxRayCastHit.collider != null)
             {
                 Debug.Log("Melle attack hit");
-                boxRayCastHit.collider.gameObject.GetComponent<IHealth>().TakeDamage(1, _facingLeft);
+                //boxRayCastHit.collider.gameObject.GetComponent<IHealth>().TakeDamage(1, _facingLeft);
                 _hit = true;
             }
         

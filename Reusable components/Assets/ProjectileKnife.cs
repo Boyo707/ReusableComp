@@ -60,7 +60,7 @@ public class ProjectileKnife : MonoBehaviour, IProjectile
         {
             if (collision.GetComponent<IPlayer>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);
@@ -70,7 +70,7 @@ public class ProjectileKnife : MonoBehaviour, IProjectile
         {
             if (collision.GetComponent<IEnemy>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spR.flipX);
                 Vector2 lastLocation = gameObject.transform.position;
                 Instantiate(_particle, lastLocation, Quaternion.identity);
                 Destroy(gameObject);

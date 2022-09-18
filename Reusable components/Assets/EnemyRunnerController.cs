@@ -38,7 +38,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
     void Update()
     {
         
-        if (!_health.knocked)
+        /*if (!_health.knocked)
         {
             float distance = _target.transform.position.x - gameObject.transform.position.x;
 
@@ -74,7 +74,7 @@ public class EnemyRunnerController : MonoBehaviour, IEnemy
             }
             
                   
-        }
+        }*/
     }
 
     private void OnDestroy()

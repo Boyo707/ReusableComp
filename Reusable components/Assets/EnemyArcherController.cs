@@ -36,8 +36,8 @@ public class EnemyArcherController : MonoBehaviour, IEnemy
     void Update()
     {
         //Debug.Log("This object cords are " + gameObject.transform.position + " target cords are " + _targetTransform.transform.position);
-        if(!_health.knocked)
-            _attack.Attack(true, _spR.flipX);
+        /*if(!_health.knocked)
+            _attack.Attack(true, _spR.flipX);*/
     }
 
     private void OnDestroy()

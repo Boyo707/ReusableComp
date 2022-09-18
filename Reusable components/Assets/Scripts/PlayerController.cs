@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, IPlayer
     private void Update()
     {
         _jump = GetComponent<IJump>();
-        if (!_health.isDead)
+        /*if (!_health.isDead)
         {
             if (!_health.knocked)
             {
@@ -50,20 +50,20 @@ public class PlayerController : MonoBehaviour, IPlayer
                 _attack.Attack(_kB.projectileAttack, _spR.flipX);
                 _attackMellee.Attack(_kB.melleeAttack, _spR.flipX);
             }
-        }
+        }*/
         movementSwitcher();
     }
 
 
     private void FixedUpdate()
     {
-        if (!_health.isDead)
+        /*if (!_health.isDead)
         {
             if (!_health.knocked)
             {
                 //_movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
             }
-        }
+        }*/
     }
 
     private void movementSwitcher()

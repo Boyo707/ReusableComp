@@ -29,7 +29,7 @@ public class EnemySpearThrowerController : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-        if (!_health.knocked)
+        /*if (!_health.knocked)
         {
             float distance = _target.transform.position.x - gameObject.transform.position.x;
 
@@ -51,7 +51,7 @@ public class EnemySpearThrowerController : MonoBehaviour, IEnemy
             }
 
 
-        }
+        }*/
     }
     private void OnDestroy()
     {

@@ -26,7 +26,7 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-        if (!_health.knocked)
+        /*if (!_health.knocked)
         {
             //_jump.JumpInput(true);
 
@@ -36,7 +36,7 @@ public class EnemyChargerController : MonoBehaviour, IEnemy
             _follow.Follow(_target);
 
             //_movement.MoveInput(_follow.moveDir, true);
-        }
+        }*/
     }
 
     private void OnDestroy()

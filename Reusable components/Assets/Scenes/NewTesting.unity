@@ -3089,12 +3089,14 @@ GameObject:
   - component: {fileID: 1666290218}
   - component: {fileID: 1666290213}
   - component: {fileID: 1666290212}
+  - component: {fileID: 1666290209}
   - component: {fileID: 1666290211}
   - component: {fileID: 1666290210}
-  - component: {fileID: 1666290209}
   - component: {fileID: 1666290217}
   - component: {fileID: 1666290216}
   - component: {fileID: 1666290219}
+  - component: {fileID: 1666290220}
+  - component: {fileID: 1666290221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3144,11 +3146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28b16c3e37c9f9498e1c1e4f7af7f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 1
-  _damagableLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  _knockBackForce: 0
+  _noFrictionMaterial: {fileID: 6200000, guid: 68818bbcb75170540955612886482424, type: 2}
+  _FrictionMaterial: {fileID: 6200000, guid: 3818d7e9f1ef6094fb5561f85e285907, type: 2}
 --- !u!50 &1666290212
 Rigidbody2D:
   serializedVersion: 4
@@ -3165,7 +3164,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 68818bbcb75170540955612886482424, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -3246,7 +3245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666290208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.78, y: 9.39, z: -0.16411404}
+  m_LocalPosition: {x: 9.44, y: 0.34, z: -0.16411404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3304,7 +3303,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1666290208}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 68818bbcb75170540955612886482424, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3333,12 +3332,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb7249307c4cd941b8f1bb32c934344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invincible: 0
   _health: 10
-  _knockBackAngle: 0
-  _knockBackForce: 0
-  _knockBacklag: 0
-  _lives: 0
-  _deathParticles: {fileID: 0}
+  _lives: 3
+--- !u!114 &1666290220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666290208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706cf8bfa20eea642b3f83b95f7f2565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _killButton: 0
+--- !u!114 &1666290221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666290208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867efb3175442074787fc594b8551d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 0
+  boxWith: 2
+  boxLength: 2
+  boxXoffset: 2
+  boxX: -2
+  boxY: 0
+  _endLag: 0
+  _lagOnhHit: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2079654878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,6 +3386,7 @@ GameObject:
   - component: {fileID: 2079654880}
   - component: {fileID: 2079654882}
   - component: {fileID: 2079654883}
+  - component: {fileID: 2079654884}
   m_Layer: 0
   m_Name: HurtBox
   m_TagString: Untagged
@@ -3437,15 +3473,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985324a5e83b3df469f6d82e14277c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 0
   _damagableLayers:
     serializedVersion: 2
     m_Bits: 1
-  _hasKnockBack: 1
-  _knockBackForce: 20
-  _knockBackAngle: 140
-  _hasHitStun: 0
-  _hitStunDuration: 0
+  _damageAmount: 0
 --- !u!61 &2079654883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3472,3 +3503,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &2079654884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079654878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979cf2f1893d7ce4895b13cb5c4161af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockBackLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  _knockBackForce: 20
+  _knockBackAngle: 132
+  _flipsAngleOnSpriteFlipX: 1
+  _stunDuration: 1
+  _spR: {fileID: 0}

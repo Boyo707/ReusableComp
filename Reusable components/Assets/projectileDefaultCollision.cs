@@ -17,7 +17,7 @@ public class projectileDefaultCollision : MonoBehaviour
         {
             if (transform.parent.GetComponent<IEnemy>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
                 Destroy(gameObject);
                 Debug.Log("COllision player");
             }
@@ -26,7 +26,7 @@ public class projectileDefaultCollision : MonoBehaviour
         {
             if (gameObject.transform.parent.GetComponent<IPlayer>() != null)
             {
-                collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
+                //collision.GetComponent<IHealth>().TakeDamage(1, _spr.flipX);
                 Destroy(gameObject);
                 Debug.Log("COllision enemy");
             }
