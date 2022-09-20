@@ -14,7 +14,6 @@ public class MovementState : MonoBehaviour, IMovements
 {
     [Header("Required Components")]
     [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private SpriteRenderer _spR;
     
     [Header("Speed Values")]
     [SerializeField] private float _defaultSpeed;
@@ -23,6 +22,9 @@ public class MovementState : MonoBehaviour, IMovements
     [Header("Smoothness")]
     [SerializeField] private float _smoothInputSpeed = 0.083f;
     [SerializeField] private float _smoothSprintTransition = 0.5f;
+
+
+    private bool _facingRight = true;
 
 
     private float moveDirection;
@@ -54,14 +56,23 @@ public class MovementState : MonoBehaviour, IMovements
         
 
 
-        if (inputDirection > 0)
+        if (inputDirection > 0 && !_facingRight)
         {
-            _spR.flipX = false;
+            Flip();
         }
-        else if(inputDirection < 0)
+        else if(inputDirection < 0 && _facingRight)
         {
-            _spR.flipX = true;
+            Flip();
         }
+    }
+
+    void Flip()
+    {
+        Vector3 currrentScale = gameObject.transform.localScale;
+        currrentScale.x *= -1;
+        gameObject.transform.localScale = currrentScale;
+
+        _facingRight = !_facingRight;
     }
 
 }

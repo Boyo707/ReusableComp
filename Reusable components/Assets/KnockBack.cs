@@ -10,16 +10,14 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float _knockBackForce;
     [SerializeField][Range(0, 360)] private float _knockBackAngle;
     [SerializeField] private bool _flipsAngleOnSpriteFlipX = true;
+    [SerializeField] private Transform _entityTransform;
 
     [Header("Knock Back Stun")]
     [SerializeField] private float _stunDuration;
-
-    [SerializeField] private SpriteRenderer _spR;
     
     void Start()
     {
-        if(_flipsAngleOnSpriteFlipX)
-            _spR = GetComponent<SpriteRenderer>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +28,7 @@ public class KnockBack : MonoBehaviour
         {
             if (!doneOnce)
             {
-                if (_spR.flipX)
+                if (_entityTransform.localScale.x == -1)
                 {
                     if (_knockBackAngle < 90 && _knockBackAngle > 0 || _knockBackAngle < 180 && _knockBackAngle > 90)
                     {
@@ -57,7 +55,7 @@ public class KnockBack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(new Vector2(transform.position.x - 2.5f, transform.position.y),
+        Gizmos.DrawRay(new Vector2(gameObject.transform.position.x, transform.position.y),
             new Vector2(Mathf.Cos(_knockBackAngle * Mathf.Deg2Rad),Mathf.Sin(_knockBackAngle * Mathf.Deg2Rad)));
     }
 }
