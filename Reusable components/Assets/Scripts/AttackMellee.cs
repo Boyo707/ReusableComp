@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class AttackMellee : MonoBehaviour, IAttack
 {
+
+
     
+    ///<Summary>
+    /// Inspiratie video voor de attack scripts HEEL SIMPEL!?!??!?<see href="https://youtu.be/Xw8F57Ci_b8?t=393">HERE</see>
+    ///</Summary>
+
+
+
     [SerializeField] private int _damage;
     [SerializeField] [Range(0.0f, 2f)] private float boxWith;
     [SerializeField] [Range(0.0f, 2f)] private float boxLength;
