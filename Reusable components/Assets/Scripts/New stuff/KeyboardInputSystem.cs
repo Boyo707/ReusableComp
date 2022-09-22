@@ -9,6 +9,11 @@ public class KeyboardInputSystem : MonoBehaviour
         get { return Input.GetAxisRaw("Horizontal"); }
     }
 
+    public bool AttackMellee
+    {
+        get { return Input.GetKey(KeyCode.K); }
+    }
+
     public bool Sprinting
     {
         get { return Input.GetKey(KeyCode.LeftShift); }

@@ -49,8 +49,8 @@ public class Damage : MonoBehaviour
         {
             if (collision.GetComponent<Health>())
             {
-                var colHealth = collision.GetComponent<Health>();
-                colHealth.TakeDamage(_damageAmount);
+                collision.GetComponent<Health>().TakeDamage(_damageAmount);
+                
             }
         }
     }

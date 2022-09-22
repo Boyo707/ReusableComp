@@ -19,7 +19,7 @@ interface IJump // double jump als 2e class
 
 interface IAttack
 {
-    void Attack(bool attack, bool facingLeft);
+    void Attack(bool attack);
 }
 
 interface IProjectile

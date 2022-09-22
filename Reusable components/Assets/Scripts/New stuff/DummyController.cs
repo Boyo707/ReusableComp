@@ -3,15 +3,14 @@ using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
 
-public class NewPlayerController : MonoBehaviour, IEntityController
+public class DummyController : MonoBehaviour, IEntityController
 {
     [SerializeField] private PhysicsMaterial2D _noFrictionMaterial;
     [SerializeField] private PhysicsMaterial2D _FrictionMaterial;
 
-    private MovementState _walkMovement;
-    private KeyboardInputSystem _kBI;
-    private JumpState _jump;
-    private AttackMellee _attack;
+    //private MovementState _walkMovement;
+    //private KeyboardInputSystem _kBI;
+    //private JumpState _jump;
     private GroundDetection _gD;
 
     private Rigidbody2D _rb2D;
@@ -25,12 +24,10 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     void Start()
     {
         
-        _kBI = GetComponent<KeyboardInputSystem>();
+        //_kBI = GetComponent<KeyboardInputSystem>();
         _gD = GetComponent<GroundDetection>();
-        _walkMovement = GetComponent<MovementState>();
-        _jump = GetComponent<JumpState>();
-        _attack = GetComponent<AttackMellee>();
-
+        //_walkMovement = GetComponent<MovementState>();
+        //_jump = GetComponent<JumpState>();
 
         _rb2D = GetComponent<Rigidbody2D>();
     }
@@ -61,9 +58,8 @@ public class NewPlayerController : MonoBehaviour, IEntityController
 
     private void EntityControlls()
     {
-        _jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
-        _walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
-        _attack.Attack(_kBI.AttackMellee);
+        //_jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
+        //_walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
     }
 
     private void UIInputs()

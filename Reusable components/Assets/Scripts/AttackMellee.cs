@@ -6,29 +6,18 @@ public class AttackMellee : MonoBehaviour, IAttack
 {
 
 
-    
+
     ///<Summary>
     /// Inspiratie video voor de attack scripts HEEL SIMPEL!?!??!?<see href="https://youtu.be/Xw8F57Ci_b8?t=393">HERE</see>
     /// Ook een functie maken dat als de colliders iets hitten dat ze uit gaan.
     /// Ook een functie voor de active duration.
     ///</Summary>
 
-
-
-    [SerializeField] private int _damage;
-    [SerializeField] [Range(0.0f, 2f)] private float boxWith;
-    [SerializeField] [Range(0.0f, 2f)] private float boxLength;
-    [SerializeField] [Range(-2f, 2f)] private float boxXoffset;
-    [SerializeField] [Range(-2f, 2f)] private float boxX;
-    [SerializeField] [Range(-2f, 2f)] private float boxY;
+    [SerializeField] private GameObject _attack1;
     [SerializeField] private float _endLag;
     [SerializeField] private float _lagOnhHit;
 
-    private float timer;
-    private Vector2 boxOrigin;
     [SerializeField] private LayerMask _layerMask;
-
-    private RaycastHit2D boxRayCastHit;
 
    private Animator _bodyAnim;
 
@@ -44,13 +33,22 @@ public class AttackMellee : MonoBehaviour, IAttack
 
     private void Start()
     {
-        _bodyAnim = GetComponent<Animator>();
+        //_bodyAnim = GetComponent<Animator>();
     }
 
 
-    public void Attack(bool attack, bool facingLeft)
+    public void Attack(bool attack)
     {
-        if (facingLeft)
+        if (attack)
+        {
+            _attack1.SetActive(true);
+            Debug.Log("attack");
+        }
+        else
+        {
+            _attack1.SetActive(false);
+        }
+        /*if (facingLeft)
             boxOrigin = new Vector2(transform.position.x  + -boxX + boxXoffset, transform.position.y + boxY);
         else
             boxOrigin = new Vector2(transform.position.x + boxX, transform.position.y + boxY);
@@ -78,25 +76,18 @@ public class AttackMellee : MonoBehaviour, IAttack
                 _bodyAnim.SetBool("Attack", false);
             _hit = false;
             timer -= Time.deltaTime;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + boxX + boxXoffset, transform.position.y + boxY), new Vector2(boxWith,boxLength));
-        Gizmos.DrawWireCube(boxOrigin, new Vector2(boxWith,boxLength));
+        }*/
     }
 
     public void activateHitBox()
     {
-            boxRayCastHit = Physics2D.BoxCast(boxOrigin, new Vector2(boxWith, boxLength), 0, Vector2.down, 0, _layerMask);
+            /*boxRayCastHit = Physics2D.BoxCast(boxOrigin, new Vector2(boxWith, boxLength), 0, Vector2.down, 0, _layerMask);
             if (boxRayCastHit.collider != null)
             {
                 Debug.Log("Melle attack hit");
                 //boxRayCastHit.collider.gameObject.GetComponent<IHealth>().TakeDamage(1, _facingLeft);
                 _hit = true;
-            }
+            }*/
         
     }
 

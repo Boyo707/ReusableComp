@@ -6,7 +6,7 @@ using UnityEngine;
 public class KnockBack : MonoBehaviour
 {
     [Header("Knock Back Values")]
-    [SerializeField] private LayerMask _knockBackLayers;
+    [SerializeField] private float _knockBackLayerValue;
     [SerializeField] private float _knockBackForce;
     [SerializeField][Range(0, 360)] private float _knockBackAngle;
     [SerializeField] private bool _flipsAngleOnSpriteFlipX = true;
@@ -43,7 +43,8 @@ public class KnockBack : MonoBehaviour
                 }
             }
         }
-        if (collision.gameObject.layer == _knockBackLayers.value - 1)
+        
+        if (collision.gameObject.layer == _knockBackLayers.value)
         {
             collision.GetComponent<IEntityController>().DisableEntityControlls(_stunDuration);
 

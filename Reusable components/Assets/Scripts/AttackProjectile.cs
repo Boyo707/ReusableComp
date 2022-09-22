@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackProjectile : MonoBehaviour, IAttack
+public class AttackProjectile : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private bool infinite;
