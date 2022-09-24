@@ -42,7 +42,7 @@ public class AttackMellee : MonoBehaviour, IAttack
         if (attack)
         {
             _attack1.SetActive(true);
-            Debug.Log("attack");
+            //Debug.Log("attack");
         }
         else
         {
