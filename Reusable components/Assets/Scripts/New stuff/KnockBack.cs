@@ -38,37 +38,51 @@ public class KnockBack : MonoBehaviour
     
     void Start()
     {
+        bool done = false;
         _orignalAngle = _knockBackAngle;
         if (_flipsAngleOnSpriteFlipX)
         {
             if (_flipped)
             {
-                if (_orignalAngle < 90 && _orignalAngle > 0 || _orignalAngle < 180 && _orignalAngle > 90)
+                if (!done)
                 {
-                    _flippedAngle = 180 - _knockBackAngle;
-                    Debug.Log("I flipped 1");
-                }
+                    if (_orignalAngle < 90 && _orignalAngle > 0 && done || _orignalAngle < 180 && _orignalAngle > 90 && done)
+                    {
+                        _flippedAngle = 180 - _knockBackAngle;
+                        done = true;
+                        Debug.Log("I flipped 1");
+                    }
 
-                else if (_orignalAngle > 180 && _orignalAngle < 270 && _orignalAngle != _knockBackAngle
-                    || _orignalAngle > 270 && _orignalAngle < 360 && _orignalAngle != _knockBackAngle)
-                {
-                    _flippedAngle = 360 - (_knockBackAngle - 180);
-                    Debug.Log("I flipped 2");
+                    else if (_orignalAngle > 180 && _orignalAngle < 270 && done || _orignalAngle > 270 && _orignalAngle < 360 && done)
+                    {
+                        _flippedAngle = 360 - (_knockBackAngle - 180);
+                        done = true;
+                        Debug.Log("I flipped 2");
+                    }
                 }
             }
                 
         }
+        _flippedAngle = 180 - 34;
+        Debug.Log(_flippedAngle);
+        Debug.Log(_orignalAngle);
     }
 
     private void Update()
     {
         if (_entityTransform.localScale.x == -1)
             _flipped = true;
+        else
+            _flipped = false;
+
+        Debug.Log(_entityTransform.lossyScale.x);
 
         if (_flipped)
             _knockBackAngle = _flippedAngle;
         else
             _knockBackAngle = _orignalAngle;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
