@@ -11,7 +11,8 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     private MovementState _walkMovement;
     private KeyboardInputSystem _kBI;
     private JumpState _jump;
-    private AttackMellee _attack;
+    private AttackMellee _attackMellee;
+    private AttackProjectile _attackProjectile;
     private GroundDetection _gD;
 
     private Rigidbody2D _rb2D;
@@ -29,8 +30,8 @@ public class NewPlayerController : MonoBehaviour, IEntityController
         _gD = GetComponent<GroundDetection>();
         _walkMovement = GetComponent<MovementState>();
         _jump = GetComponent<JumpState>();
-        _attack = GetComponent<AttackMellee>();
-
+        _attackMellee = GetComponent<AttackMellee>();
+        _attackProjectile = GetComponent<AttackProjectile>();
 
         _rb2D = GetComponent<Rigidbody2D>();
     }
@@ -63,7 +64,8 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     {
         _jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
         _walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
-        _attack.Attack(_kBI.AttackMellee);
+        _attackMellee.Attack(_kBI.AttackMellee);
+        _attackProjectile.Attack(_kBI.AttackProjectile);
     }
 
     private void UIInputs()

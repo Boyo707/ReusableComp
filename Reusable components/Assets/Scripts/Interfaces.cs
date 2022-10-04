@@ -30,7 +30,7 @@ interface IProjectile
 
 interface ITrajectory
 {
-    void facingLeft(bool facingLeft);
+    void FacingLeft(bool facingLeft);
 }
 
 interface IHealth

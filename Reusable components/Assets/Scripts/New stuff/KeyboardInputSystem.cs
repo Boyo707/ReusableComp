@@ -13,6 +13,10 @@ public class KeyboardInputSystem : MonoBehaviour
     {
         get { return Input.GetKey(KeyCode.K); }
     }
+    public bool AttackProjectile
+    {
+        get { return Input.GetKey(KeyCode.J); }
+    }
 
     public bool Sprinting
     {

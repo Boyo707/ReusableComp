@@ -45,7 +45,7 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.layer == _damagableLayers.value - 1)
+        if (_damagableLayers == (_damagableLayers | (1 << collision.gameObject.layer)))
         {
             if (collision.GetComponent<Health>())
             {

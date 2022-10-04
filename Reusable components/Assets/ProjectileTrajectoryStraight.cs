@@ -22,7 +22,7 @@ public class ProjectileTrajectoryStraight : MonoBehaviour, ITrajectory
 
     //iets maken dat de update stopt of
 
-    public void facingLeft(bool facingLeft)
+    public void FacingLeft(bool facingLeft)
     {
         _facingLeft = facingLeft;
     }

@@ -15,7 +15,7 @@ public class ProjectileArchTrajectory : MonoBehaviour, ITrajectory
 
     }
 
-    public void facingLeft(bool facingLeft)
+    public void FacingLeft(bool facingLeft)
     {
         _facingLeft = facingLeft;
     }

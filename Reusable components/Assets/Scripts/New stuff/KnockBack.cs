@@ -19,15 +19,12 @@ public enum ObjectType
 public class KnockBack : MonoBehaviour
 {
     [Header("Knock Back Values")]
-    //[SerializeField] private float _knockBackLayerValue;
     [SerializeField] private float _knockBackForce;
     [SerializeField][Range(0, 360)] private float _knockBackAngle;
     [SerializeField] private bool _flipsAngleOnSpriteFlipX = true;
     [SerializeField] private Transform _entityTransform;
 
     [SerializeField] private LayerMask _layerMask;
-    //[SerializeField] private string[] _knockBackLayers;
-    //[SerializeField] private ObjectType _type;
 
     [Header("Knock Back Stun")]
     [SerializeField] private float _stunDuration;
@@ -35,62 +32,58 @@ public class KnockBack : MonoBehaviour
     private bool _flipped = false;
     private float _orignalAngle;
     private float _flippedAngle;
-    
+
     void Start()
     {
         bool done = false;
         _orignalAngle = _knockBackAngle;
         if (_flipsAngleOnSpriteFlipX)
         {
-            if (_flipped)
+            if (!done)
             {
-                if (!done)
+                if (_orignalAngle < 180 && _orignalAngle > 90 && !done || _orignalAngle > 270 && _orignalAngle < 360 && !done)
                 {
-                    if (_orignalAngle < 90 && _orignalAngle > 0 && done || _orignalAngle < 180 && _orignalAngle > 90 && done)
-                    {
-                        _flippedAngle = 180 - _knockBackAngle;
-                        done = true;
-                        Debug.Log("I flipped 1");
-                    }
+                    _flippedAngle = _knockBackAngle - 90;
+                    Debug.Log("I flipped 1");
+                    done = true;
 
-                    else if (_orignalAngle > 180 && _orignalAngle < 270 && done || _orignalAngle > 270 && _orignalAngle < 360 && done)
-                    {
-                        _flippedAngle = 360 - (_knockBackAngle - 180);
-                        done = true;
-                        Debug.Log("I flipped 2");
-                    }
+                }
+                else if (_orignalAngle < 90 && _orignalAngle > 0 && !done || _orignalAngle > 180 && _orignalAngle < 270 && !done)
+                {
+                    _flippedAngle = _knockBackAngle + 90;
+                    Debug.Log("I flipped 2");
+                    done = true;
+
                 }
             }
-                
+            
+
         }
-        _flippedAngle = 180 - 34;
-        Debug.Log(_flippedAngle);
-        Debug.Log(_orignalAngle);
     }
 
     private void Update()
     {
+        
+
         if (_entityTransform.localScale.x == -1)
+        {
             _flipped = true;
+        }
         else
+        {
             _flipped = false;
-
-        Debug.Log(_entityTransform.lossyScale.x);
-
+        }
         if (_flipped)
             _knockBackAngle = _flippedAngle;
         else
             _knockBackAngle = _orignalAngle;
 
-        
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool doneOnce = false;
-        
-        
-
 
         if (_layerMask == (_layerMask | (1 << collision.gameObject.layer)))
             {
