@@ -44,14 +44,12 @@ public class KnockBack : MonoBehaviour
                 if (_orignalAngle < 180 && _orignalAngle > 90 && !done || _orignalAngle > 270 && _orignalAngle < 360 && !done)
                 {
                     _flippedAngle = _knockBackAngle - 90;
-                    Debug.Log("I flipped 1");
                     done = true;
 
                 }
                 else if (_orignalAngle < 90 && _orignalAngle > 0 && !done || _orignalAngle > 180 && _orignalAngle < 270 && !done)
                 {
                     _flippedAngle = _knockBackAngle + 90;
-                    Debug.Log("I flipped 2");
                     done = true;
 
                 }

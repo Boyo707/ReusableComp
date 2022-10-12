@@ -11,11 +11,11 @@ public class KeyboardInputSystem : MonoBehaviour
 
     public bool AttackMellee
     {
-        get { return Input.GetKey(KeyCode.K); }
+        get { return Input.GetKeyDown(KeyCode.K); }
     }
     public bool AttackProjectile
     {
-        get { return Input.GetKey(KeyCode.J); }
+        get { return Input.GetKeyDown(KeyCode.J); }
     }
 
     public bool Sprinting

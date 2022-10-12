@@ -5122,9 +5122,10 @@ MonoBehaviour:
   _projectile: {fileID: 4552813934621821531, guid: f02e934b5ccabc2458d5f674003fbc1e, type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   _infinite: 0
   _projectileAmount: 12
+  _throwDelay: 1
 --- !u!1 &2079654878
 GameObject:
   m_ObjectHideFlags: 0

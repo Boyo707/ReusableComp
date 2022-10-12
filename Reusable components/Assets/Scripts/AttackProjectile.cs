@@ -13,11 +13,8 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField] private int _projectileAmount;
     [SerializeField] private float _throwDelay;
 
-    
-
     private Animator _bodyAnim;
 
-    private float timer = 1;
     private Vector2 origin;
 
     public int projectileAmounts { get { return _projectileAmount; } set { _projectileAmount = value; } }
@@ -51,51 +48,22 @@ public class AttackProjectile : MonoBehaviour
                 Debug.Log(objectTransform);
                 Debug.Log(flipped);
 
-
-                //shoot + delay count down
                 if (flipped)
                     origin = new Vector2(gameObject.transform.position.x - gameObject.transform.localScale.x / 1.25f, gameObject.transform.position.y);
                 else
                     origin = new Vector2(gameObject.transform.position.x - gameObject.transform.localScale.x / -1.20f, gameObject.transform.position.y);
 
 
-                //_projectile.GetComponent<ITrajectory>().FacingLeft(flipped);
-
-                /*if (timer <= 0)
-                {*/
-                /*if (GetComponent<IPlayer>() != null)
-                {
-                    if (_projectile.name == "Sword-Projectile")
-                        _bodyAnim.SetBool("Heavy", true);
-                    else
-                        _bodyAnim.SetBool("Heavy", false);
-                }*/
                 if (_projectileAmount != 0 || _infinite)
                 {
 
-
-                    /*if (GetComponent<IPlayer>() != null && GetComponent<Animator>() == null)
-                        Debug.LogError("A animator is required to use this script");
-                    else if (GetComponent<IPlayer>() != null)
-                        _bodyAnim.SetBool("Throw", true);*/
-                    Debug.Log("Else instantiate");
+                    StartCoroutine(WaitingCourotine(flipped));
                     
-                    //InstantiateProjectile();
-                    /*else
-                    {
-                       //had debug.log and instantiate in it. 
-                    }*/
 
 
                     _projectileAmount -= 1;
                 }
             }
-            /*else if (timer > 0)
-            {
-                timer -= Time.deltaTime;
-                if (GetComponent<IPlayer>() != null)
-                    _bodyAnim.SetBool("Throw", false);
-            }*/
         }
             
         
@@ -103,18 +71,20 @@ public class AttackProjectile : MonoBehaviour
             Debug.LogError($"Unassigned Projectile in {gameObject.name}");
     }
 
-    IEnumerator WaitingCourotine()
+    IEnumerator WaitingCourotine(bool flipped)
     {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(_throwDelay);
+        
 
         GameObject thrownProjectile = (GameObject)Instantiate(_projectile, transform.position, transform.rotation);
         ITrajectory thing = thrownProjectile.GetComponent<ITrajectory>();
 
-        thing.FacingLeft();
+        thing.FacingLeft(flipped);
+
+        yield return new WaitForSeconds(_throwDelay);
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
