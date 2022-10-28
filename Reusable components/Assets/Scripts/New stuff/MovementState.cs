@@ -16,8 +16,8 @@ public class MovementState : MonoBehaviour, IMovements
     [SerializeField] private Rigidbody2D _rb;
     
     [Header("Speed Values")]
-    [SerializeField] private float _defaultSpeed;
-    [SerializeField] private float _sprintSpeed;
+    [SerializeField] private float _defaultSpeed = 5;
+    [SerializeField] private float _sprintSpeed = 8;
 
     [Header("Smoothness")]
     [SerializeField] private float _smoothInputSpeed = 0.083f;
