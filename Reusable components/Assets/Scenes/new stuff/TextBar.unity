@@ -500,7 +500,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 830786044}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -665,6 +665,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601244302}
   m_CullTransparentMesh: 1
+--- !u!1 &705305690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705305691}
+  - component: {fileID: 705305693}
+  - component: {fileID: 705305692}
+  m_Layer: 5
+  m_Name: CharacterImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &705305691
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705305690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 830786044}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -247, y: 164.5}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &705305692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705305690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1298627964, guid: 537ffa53b665e0e4db2d8a2fae5a8899, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &705305693
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705305690}
+  m_CullTransparentMesh: 1
 --- !u!1 &830786043
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +771,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 705305691}
   - {fileID: 601244303}
   - {fileID: 2137886924}
   m_Father: {fileID: 71926475}
@@ -803,18 +880,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07230671804714b830ecfe43145946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 0}
   _dialogueBoxText: {fileID: 601244304}
   _characterNameText: {fileID: 1803814899}
+  _characterImage: {fileID: 705305692}
+  _DialogueName: 
+  _textSpeed: 0.1
   _dialogueOptions:
   - _dialogueType: 0
-    _characterTalking: Boyd
+    _characterData: {fileID: 11400000, guid: b625d21239e857f488c45153f65ccd8a, type: 2}
     _newBackground: {fileID: 0}
     _dialogue: 'I just shit myself accidentally... Oopsie.
 
       Might Not go home
       today :/'
   - _dialogueType: 0
-    _characterTalking: Boyd
+    _characterData: {fileID: 11400000, guid: b625d21239e857f488c45153f65ccd8a, type: 2}
     _newBackground: {fileID: 0}
     _dialogue: 'Gonna cry myself to sleep.
 
@@ -823,7 +904,7 @@ MonoBehaviour:
       Might
       kill myslf'
   - _dialogueType: 0
-    _characterTalking: Anne
+    _characterData: {fileID: 11400000, guid: f07597350a357f947b09ac4a645435d5, type: 2}
     _newBackground: {fileID: 0}
     _dialogue: Shut the fuck up bitch
 --- !u!4 &1111480118
@@ -857,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1308713091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1176,7 @@ RectTransform:
   m_Children:
   - {fileID: 1803814898}
   m_Father: {fileID: 830786044}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

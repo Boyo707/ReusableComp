@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e6175f79644ae4d863e66bd86f7c02, type: 3}
-  m_Name: TestingScriptableObject 1
+  m_Script: {fileID: 11500000, guid: f56e18c43c940254993022bfa951a820, type: 3}
+  m_Name: Boyd
   m_EditorClassIdentifier: 
-  health: 100
-  speed: 4
-  lol: 0
+  _characterName: Boyd
+  _characterGender: 0
+  _characterType: 0
+  _characterDialogueImage: {fileID: 526771944, guid: 537ffa53b665e0e4db2d8a2fae5a8899, type: 3}
+  _characterDescription: 
