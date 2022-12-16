@@ -23,12 +23,21 @@ public class KeyboardInputSystem : MonoBehaviour
         get { return Input.GetKey(KeyCode.LeftShift); }
     }
 
-    public bool JumpDown
+    /*public bool JumpDown
     {
         get { return Input.GetKeyDown(KeyCode.Space); }
     }
     public bool JumpHold
     {
         get { return Input.GetKey(KeyCode.Space); }
+    }*/
+
+    public bool JumpDown
+    {
+        get { return Input.GetKeyDown("joystick 1 button 1"); }
+    }
+    public bool JumpHold
+    {
+        get { return Input.GetKey("joystick 1 button 1"); }
     }
 }

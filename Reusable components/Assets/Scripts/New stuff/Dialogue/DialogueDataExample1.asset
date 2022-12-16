@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2614703816a78784695f68eaa3fc4856, type: 3}
+  m_Name: DialogueDataExample1
+  m_EditorClassIdentifier: 
+  DialogueOptions:
+  - _dialogueType: 0
+    _characterData: {fileID: 11400000, guid: b625d21239e857f488c45153f65ccd8a, type: 2}
+    _newBackground: {fileID: 0}
+    _dialogue: 'I like playing DK for fun ngl
+
+      Are you kidding me rn lmao'
+  - _dialogueType: 0
+    _characterData: {fileID: 11400000, guid: f07597350a357f947b09ac4a645435d5, type: 2}
+    _newBackground: {fileID: 0}
+    _dialogue: I'm def a swordies person at heart tho
+  - _dialogueType: 0
+    _characterData: {fileID: 11400000, guid: b625d21239e857f488c45153f65ccd8a, type: 2}
+    _newBackground: {fileID: 0}
+    _dialogue: 'yeah a lot of people enjoy playing them for fun
+
+      Don''t let
+      my opinion dissuade u from following ur dreams'

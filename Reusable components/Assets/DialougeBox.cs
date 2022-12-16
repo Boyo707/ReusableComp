@@ -1,19 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 using System;
 using UnityEditor.U2D.Animation;
 using System.Net.NetworkInformation;
-
-public enum DialogueType
-{
-    Default,
-    OptionSelection,
-    Transition
-}
 
 public enum DialogueState
 {
@@ -25,20 +19,23 @@ public enum DialogueState
 public class DialougeBox : MonoBehaviour
 {
     [Header("UI Refrences")]
-    //[SerializeField] private GameObject _DialogueBox;
+    [SerializeField] private GameObject _dialogueBox;
+    [SerializeField] private Image _characterImage;
     [SerializeField] private TextMeshProUGUI _dialogueBoxText;
     [SerializeField] private TextMeshProUGUI _characterNameText;
-    [SerializeField] private Image _characterImage;
+
 
     [Header("Dialogue Options")]
+    [SerializeField] private bool _startOnAwake = false;
 
-    [SerializeField] private string _DialogueName;
+    [SerializeField][Range(0, 0.5f)] private float _timeBetweenLetters = 0.025f; 
 
-    [SerializeField][Range(0, 0.5f)] private float _textSpeed; 
+    [SerializeField] private List <DialogueDataObject> _dialogue = new List<DialogueDataObject>();
 
-    
-    [SerializeField] private List<DialogueOptions> _dialogueOptions = new List<DialogueOptions>();
+    [SerializeField] private UnityEvent _onExit;
 
+    //Indexs for the dialogue lists
+    private int _currentDialogueSceneIndex = 0;
     private int _currentDialogueIndex = 0;
 
     private DialogueState _state = DialogueState.Loaded;
@@ -47,9 +44,17 @@ public class DialougeBox : MonoBehaviour
 
     private void Awake()
     {
-        _characterImage.sprite = _dialogueOptions[_currentDialogueIndex].CharacterImage;
-         _dialogueBoxText.text = _dialogueOptions[_currentDialogueIndex].Dialogue;
-         _characterNameText.text = _dialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+        _dialogueBox.SetActive(false);
+        if (_startOnAwake)
+        {
+            _currentDialogueIndex = 0;
+            _currentDialogueSceneIndex = 0;
+
+            _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
+            _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
+            _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+            StartDialogue();
+        }
     }
 
 
@@ -64,8 +69,6 @@ public class DialougeBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         #region Dialouge Inputs
         switch (_state)
         {
@@ -79,19 +82,25 @@ public class DialougeBox : MonoBehaviour
 
                 break;
             
+
             case DialogueState.Loaded:
 
                 if (Input.GetMouseButtonDown(0))
+                {
+                    
                     NextDialogue();
+                }
+                    
 
                 if (Input.mouseScrollDelta.y < 0)
                         NextDialogue();
                 break;
+                
 
             case DialogueState.Selecting:
                 if (Input.GetMouseButtonDown(0))
                     NextDialogue();
-                    //select button -- Delete "NextDialogue();"
+                    //Needs to be select button -- Delete "NextDialogue();"
                 break;
 
 
@@ -121,43 +130,65 @@ public class DialougeBox : MonoBehaviour
             //NextDialoufe
         }
         #endregion
+    }
 
+    public void StartDialogue()
+    {
+        _dialogueBox.SetActive(true);
+        _currentDialogueIndex = 0;
+        _currentDialogueSceneIndex= 0;
+        StartCoroutine(DrawText());
     }
 
     private IEnumerator DrawText()
     {
-        
-        foreach (char c in _dialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
+
+        foreach (char c in _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
         {
             _dialogueBoxText.text += c;
-            yield return new WaitForSeconds(_textSpeed);
+            yield return new WaitForSeconds(_timeBetweenLetters);
             _state = DialogueState.Writing;
         }
-    }
-
-    private void StartDialogue()
-    {
-        _currentDialogueIndex = 0;
-        StartCoroutine(DrawText());
     }
     
     private void NextDialogue()
     {
         StopAllCoroutines();
+
         _dialogueBoxText.text = string.Empty;
+
+        if (_currentDialogueIndex == _dialogue[_currentDialogueSceneIndex].DialogueOptions.Count - 1)
+        {
+            if (_currentDialogueSceneIndex == _dialogue.Count - 1)
+            {
+                StopDialogue();
+                return;
+            }
+            NextDialogueScene();
+            return;
+        }
+
+
+
         _currentDialogueIndex++;
-        _characterImage.sprite = _dialogueOptions[_currentDialogueIndex].CharacterImage;
-        _characterNameText.text = _dialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+
+        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
+        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+
         StartCoroutine(DrawText());
     }
 
     private void SkipDialogue()
     {
         StopAllCoroutines();
+
         _dialogueBoxText.text = string.Empty;
+
         _currentDialogueIndex++;
-        _characterImage.sprite = _dialogueOptions[_currentDialogueIndex].CharacterImage;
-        _characterNameText.text = _dialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+
+        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
+        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+
         StartCoroutine(DrawText());
     }
 
@@ -165,33 +196,30 @@ public class DialougeBox : MonoBehaviour
     {
         StopAllCoroutines();
         _state = DialogueState.Loaded;
-        _dialogueBoxText.text = _dialogueOptions[_currentDialogueIndex].Dialogue;
+
+        _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
     }
 
+    private void NextDialogueScene()
+    {
+        _currentDialogueSceneIndex++;
+
+        _currentDialogueIndex = 0;
+        Debug.Log("NextScene");
+        Debug.Log(_currentDialogueIndex);
+
+        StartCoroutine(DrawText());
+    }
+
+    private void StopDialogue()
+    {
+        _dialogueBox.SetActive(false);
+        _currentDialogueIndex = 0;
+        _currentDialogueSceneIndex = 0;
+        _onExit.Invoke();
+        Debug.Log("Stopped");
+    }
     
 }
 
-[Serializable]
-public class DialogueOptions
-{
-    [SerializeField] private DialogueType _dialogueType = DialogueType.Default;
 
-    [SerializeField] private CharacterData _characterData;
-
-    [SerializeField] private Image _newBackground;
-
-    //character Expression
-
-
-    [SerializeField]
-    [TextArea(1, 2)]
-    private string _dialogue;
-
-    public DialogueType TypeOfDialogue => _dialogueType;
-    public string CurrentCharacterName => _characterData._characterName;
-    public Sprite CharacterImage => _characterData._characterDialogueImage;
-    public Image Background => _newBackground;
-    public string Dialogue => _dialogue;
-
-    
-}
