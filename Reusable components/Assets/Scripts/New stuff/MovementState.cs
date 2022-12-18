@@ -49,8 +49,8 @@ public class MovementState : MonoBehaviour, IMovements
         }
 
         
-            currentInputVector = Vector2.SmoothDamp(currentInputVector, new Vector2(inputDirection, _rb.velocity.y), ref smoothInputVelocity, _smoothInputSpeed);
-            moveDirection = currentInputVector.x;
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, new Vector2(inputDirection, _rb.velocity.y), ref smoothInputVelocity, _smoothInputSpeed);
+        moveDirection = currentInputVector.x;
         
         _rb.velocity = new Vector2(moveDirection * _currentSpeed, _rb.velocity.y); //moet gezet worden in fixed updates.
         

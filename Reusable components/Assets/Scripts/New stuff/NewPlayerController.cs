@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Diagnostics;
+using System.Linq;
+using System;
 using UnityEngine;
 
 public class NewPlayerController : MonoBehaviour, IEntityController
@@ -9,7 +10,7 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     [SerializeField] private PhysicsMaterial2D _FrictionMaterial;
 
     private MovementState _walkMovement;
-    private KeyboardInputSystem _kBI;
+    private IControllerInput _controllerInput;
     private JumpState _jump;
     private AttackMellee _attackMellee;
     private AttackProjectile _attackProjectile;
@@ -26,7 +27,7 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     void Start()
     {
         
-        _kBI = GetComponent<KeyboardInputSystem>();
+        _controllerInput = GetComponent<IControllerInput>();
         _gD = GetComponent<GroundDetection>();
         _walkMovement = GetComponent<MovementState>();
         _jump = GetComponent<JumpState>();
@@ -39,6 +40,7 @@ public class NewPlayerController : MonoBehaviour, IEntityController
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(_controllerInput.HorizontalInput);
         //a way to disable it at knockback.
         if (_knockedDuration > 0)
         {
@@ -62,10 +64,10 @@ public class NewPlayerController : MonoBehaviour, IEntityController
 
     private void EntityControlls()
     {
-        _jump.JumpInput(_gD.OnGround(), _kBI.JumpDown, _kBI.JumpHold);
-        _walkMovement.MoveInput(_kBI.HorizontalInput, _kBI.Sprinting);
-        _attackMellee.Attack(_kBI.AttackMellee);
-        _attackProjectile.Attack(_kBI.AttackProjectile);
+        _jump.JumpInput(_gD.OnGround(), _controllerInput.JumpDown, _controllerInput.JumpHold);
+        _walkMovement.MoveInput(_controllerInput.HorizontalInput, _controllerInput.Sprinting);
+        _attackMellee.Attack(_controllerInput.AttackMellee);
+        _attackProjectile.Attack(_controllerInput.AttackProjectile);
     }
 
     private void UIInputs()

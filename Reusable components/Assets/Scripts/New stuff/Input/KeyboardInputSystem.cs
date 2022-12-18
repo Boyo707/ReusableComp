@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class KeyboardInputSystem : MonoBehaviour
+public class KeyboardInputSystem : MonoBehaviour, IControllerInput
 {
+
     public float HorizontalInput
     {
         get { return Input.GetAxisRaw("Horizontal"); }
+    }
+    public bool Sprinting
+    {
+        get { return Input.GetKey(KeyCode.LeftShift); }
     }
 
     public bool AttackMellee
@@ -18,26 +25,12 @@ public class KeyboardInputSystem : MonoBehaviour
         get { return Input.GetKeyDown(KeyCode.J); }
     }
 
-    public bool Sprinting
-    {
-        get { return Input.GetKey(KeyCode.LeftShift); }
-    }
-
-    /*public bool JumpDown
+    public bool JumpDown
     {
         get { return Input.GetKeyDown(KeyCode.Space); }
     }
     public bool JumpHold
     {
         get { return Input.GetKey(KeyCode.Space); }
-    }*/
-
-    public bool JumpDown
-    {
-        get { return Input.GetKeyDown("joystick 1 button 1"); }
-    }
-    public bool JumpHold
-    {
-        get { return Input.GetKey("joystick 1 button 1"); }
     }
 }
