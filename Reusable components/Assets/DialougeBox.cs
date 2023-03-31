@@ -8,6 +8,7 @@ using TMPro;
 using System;
 using UnityEditor.U2D.Animation;
 using System.Net.NetworkInformation;
+using UnityEditor.Experimental.GraphView;
 
 public enum DialogueState
 {
@@ -24,11 +25,14 @@ public class DialougeBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueBoxText;
     [SerializeField] private TextMeshProUGUI _characterNameText;
 
+    private AudioSource _audioSource;
+    private AudioClip _audioClip;
+
 
     [Header("Dialogue Options")]
     [SerializeField] private bool _startOnAwake = false;
 
-    [SerializeField][Range(0, 0.5f)] private float _timeBetweenLetters = 0.025f; 
+    [SerializeField][Range(0, 2f)] private float _textSpeed; 
 
     [SerializeField] private List <DialogueDataObject> _dialogue = new List<DialogueDataObject>();
 
@@ -45,6 +49,7 @@ public class DialougeBox : MonoBehaviour
     private void Awake()
     {
         _dialogueBox.SetActive(false);
+        _audioSource = GetComponent<AudioSource>();
         if (_startOnAwake)
         {
             _currentDialogueIndex = 0;
@@ -53,6 +58,12 @@ public class DialougeBox : MonoBehaviour
             _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
             _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
             _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+            if (_dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip != null)
+            {
+                _audioClip = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip;
+                _audioSource.clip = _audioClip;
+            }
+
             StartDialogue();
         }
     }
@@ -146,9 +157,11 @@ public class DialougeBox : MonoBehaviour
         foreach (char c in _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
         {
             _dialogueBoxText.text += c;
-            yield return new WaitForSeconds(_timeBetweenLetters);
+            _audioSource.Play();
+            yield return new WaitForSeconds(_textSpeed/8);
             _state = DialogueState.Writing;
         }
+        
     }
     
     private void NextDialogue()
