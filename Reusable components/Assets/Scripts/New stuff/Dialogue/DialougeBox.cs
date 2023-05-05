@@ -9,6 +9,7 @@ using System;
 using UnityEditor.U2D.Animation;
 using System.Net.NetworkInformation;
 using UnityEditor.Experimental.GraphView;
+using System.Runtime.CompilerServices;
 
 public enum DialogueState
 {
@@ -25,14 +26,17 @@ public class DialougeBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueBoxText;
     [SerializeField] private TextMeshProUGUI _characterNameText;
 
-    private AudioSource _audioSource;
-    private AudioClip _audioClip;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
+
+    [SerializeField][Range(1, 10)] private int _audioPerCharacter;
+    private int _writtenCharacter;
 
 
     [Header("Dialogue Options")]
     [SerializeField] private bool _startOnAwake = false;
 
-    [SerializeField][Range(0, 2f)] private float _textSpeed; 
+    [SerializeField][Range(1, 20)] private float _textSpeed; 
 
     [SerializeField] private List <DialogueDataObject> _dialogue = new List<DialogueDataObject>();
 
@@ -49,7 +53,6 @@ public class DialougeBox : MonoBehaviour
     private void Awake()
     {
         _dialogueBox.SetActive(false);
-        _audioSource = GetComponent<AudioSource>();
         if (_startOnAwake)
         {
             _currentDialogueIndex = 0;
@@ -157,8 +160,16 @@ public class DialougeBox : MonoBehaviour
         foreach (char c in _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
         {
             _dialogueBoxText.text += c;
-            _audioSource.Play();
-            yield return new WaitForSeconds(_textSpeed/8);
+            if (c != ' ')
+            {
+                _writtenCharacter++;
+                if (_writtenCharacter % _audioPerCharacter == 0)
+                {
+                    _audioSource.PlayOneShot(_audioClip);
+                }
+            }
+            //_audioSource.Stop();
+            yield return new WaitForSeconds(1f / _textSpeed);
             _state = DialogueState.Writing;
         }
         
@@ -218,8 +229,6 @@ public class DialougeBox : MonoBehaviour
         _currentDialogueSceneIndex++;
 
         _currentDialogueIndex = 0;
-        Debug.Log("NextScene");
-        Debug.Log(_currentDialogueIndex);
 
         StartCoroutine(DrawText());
     }

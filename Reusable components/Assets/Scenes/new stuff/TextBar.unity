@@ -1008,8 +1008,11 @@ MonoBehaviour:
   _characterImage: {fileID: 705305692}
   _dialogueBoxText: {fileID: 601244304}
   _characterNameText: {fileID: 1803814899}
+  _audioSource: {fileID: 1111480119}
+  _audioClip: {fileID: 8300000, guid: 05c3fa6e1d875dc4a95e816d0e797df1, type: 3}
+  _audioPerCharacter: 1
   _startOnAwake: 0
-  _textSpeed: 1.113
+  _textSpeed: 1
   _dialogue:
   - {fileID: 11400000, guid: 405829e752babf34a85301410d64264f, type: 2}
   - {fileID: 11400000, guid: ff5b737bd28139a4799d0609eec31695, type: 2}
