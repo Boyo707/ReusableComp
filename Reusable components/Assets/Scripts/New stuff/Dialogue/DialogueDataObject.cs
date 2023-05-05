@@ -30,6 +30,10 @@ public class DialogueOptions
 
     [SerializeField] private Image _newBackground;
 
+    [SerializeField] private float _textSpeed;
+
+    [SerializeField] private AudioClip _dialogueSound;
+
     //character Expression
 
 
@@ -42,6 +46,7 @@ public class DialogueOptions
     public Sprite CharacterImage => _characterData._characterDialogueImage;
     public Image Background => _newBackground;
     public string Dialogue => _dialogue;
+    public AudioClip AudioClip => _dialogueSound;
 
 
 }

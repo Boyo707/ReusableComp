@@ -6,6 +6,10 @@ using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 using System;
+using UnityEditor.U2D.Animation;
+using System.Net.NetworkInformation;
+using UnityEditor.Experimental.GraphView;
+using System.Runtime.CompilerServices;
 
 public enum DialogueState
 {
@@ -22,11 +26,17 @@ public class DialougeBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueBoxText;
     [SerializeField] private TextMeshProUGUI _characterNameText;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
+
+    [SerializeField][Range(1, 10)] private int _audioPerCharacter;
+    private int _writtenCharacter;
+
 
     [Header("Dialogue Options")]
     [SerializeField] private bool _startOnAwake = false;
 
-    [SerializeField][Range(0, 0.5f)] private float _timeBetweenLetters = 0.025f; 
+    [SerializeField][Range(1, 20)] private float _textSpeed; 
 
     [SerializeField] private List <DialogueDataObject> _dialogue = new List<DialogueDataObject>();
 
@@ -51,6 +61,12 @@ public class DialougeBox : MonoBehaviour
             _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
             _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
             _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+            if (_dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip != null)
+            {
+                _audioClip = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip;
+                _audioSource.clip = _audioClip;
+            }
+
             StartDialogue();
         }
     }
@@ -144,9 +160,19 @@ public class DialougeBox : MonoBehaviour
         foreach (char c in _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
         {
             _dialogueBoxText.text += c;
-            yield return new WaitForSeconds(_timeBetweenLetters);
+            if (c != ' ')
+            {
+                _writtenCharacter++;
+                if (_writtenCharacter % _audioPerCharacter == 0)
+                {
+                    _audioSource.PlayOneShot(_audioClip);
+                }
+            }
+            //_audioSource.Stop();
+            yield return new WaitForSeconds(1f / _textSpeed);
             _state = DialogueState.Writing;
         }
+        
     }
     
     private void NextDialogue()
@@ -203,8 +229,6 @@ public class DialougeBox : MonoBehaviour
         _currentDialogueSceneIndex++;
 
         _currentDialogueIndex = 0;
-        Debug.Log("NextScene");
-        Debug.Log(_currentDialogueIndex);
 
         StartCoroutine(DrawText());
     }
