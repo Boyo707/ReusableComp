@@ -6,8 +6,6 @@ using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 using System;
-using UnityEditor.U2D.Animation;
-using System.Net.NetworkInformation;
 
 public enum DialogueState
 {
