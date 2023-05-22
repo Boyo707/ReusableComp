@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -33,16 +34,18 @@ public class RPGTiledMovement : MonoBehaviour
 
     [SerializeField] private bool _diagonalMovement = false;
 
-    [SerializeField] private float _blockedMovementTimer = 1f;
-    private int _blockedAmount = 0;
-
-    Vector3 _previosPosition = Vector3.zero;
+    Vector2 nextCellPosition = Vector2.zero;
 
     private float _speed;
 
     private bool _pressedInput = false;
     private bool _wallCheck = false;
     private bool _moveObject = false;
+
+    private bool[] _hasRaycastHitWall = new bool[8];
+
+    private bool _hasReachedDestination1;
+    private bool _hasReachedDestination2;
 
     float x;
     float y;
@@ -54,6 +57,17 @@ public class RPGTiledMovement : MonoBehaviour
     //raycast
     private Vector2[] _rayAngles = new Vector2[8];
 
+
+    /*TO DO
+     * 
+     * Maak diagonal movement naast tiles beter.
+     *      Doe dit door een nieuwe void te maken dat checkt of er een muur naast je zit of niet. En dan laat het je 2 sequences doen van movement om naar je positie te komen.
+     *      Of zorg er voor dat het movement blocked maar dit is minder om aan te raden.
+     *      Mischien handig om research te doen van wat andere spellen doen met dezelfde movement.
+     *      
+     *Maad de input anders. Geef de input een priority van wat het laatst is ingedrukt. Zorgt er voor als diagonal uit staat dat de movement wat meer smooth voelt
+     *Doe dit door de laatste gegeven input in een variable te doen dat de input veranderd.
+     **/
 
     void Start()
     {
@@ -90,6 +104,7 @@ public class RPGTiledMovement : MonoBehaviour
             MoveDirection();
             if (_wallCheck)
             {
+                nextCellPosition = new Vector2(_cellTranfromPosition.x + x, _cellTranfromPosition.y + y);
                 WallDetection();
             }
         }
@@ -97,12 +112,9 @@ public class RPGTiledMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         if (_moveObject)
         {
-            Vector3 NextCellPosition = new Vector3(_cellTranfromPosition.x + x, _cellTranfromPosition.y + y, _cellTranfromPosition.z);
-            
-            MoveObjectToCell(NextCellPosition);
+            MoveObjectToCell(nextCellPosition);
         }
     }
 
@@ -144,59 +156,59 @@ public class RPGTiledMovement : MonoBehaviour
 
     private void MoveDirection()
     {
-        if (x == 1)
+
+        switch (x)
         {
-            if (y == 1)
-            {
-                _moveDirection = TiledMoveDirection.NorthEast;
+            case -1:
+                switch (y)
+                {
+                    case -1:
+                        _moveDirection = TiledMoveDirection.SouthWest;
+                        break;
 
-            }
-            else if (y == 0)
-            {
-                _moveDirection = TiledMoveDirection.East;
+                    case 0:
+                        _moveDirection = TiledMoveDirection.West;
+                        break;
 
-            }
-            else if (y == -1)
-            {
-                _moveDirection = TiledMoveDirection.SouthEast;
-            }
+                    case 1:
+                        _moveDirection = TiledMoveDirection.NorthWest;
+                        break;
+                }
+                break;
 
-        }
-        else if (x == 0)
-        {
-            if (y == 1)
-            {
-                _moveDirection = TiledMoveDirection.North;
+            case 0:
+                switch (y)
+                {
+                    case -1:
+                        _moveDirection = TiledMoveDirection.South;
+                        break;
 
+                    case 0:
+                        _moveDirection = TiledMoveDirection.NoDirection;
+                        break;
 
-            }
-            else if (y == 0)
-            {
-                _moveDirection = TiledMoveDirection.NoDirection;
+                    case 1:
+                        _moveDirection = TiledMoveDirection.North;
+                        break;
+                }
+                break;
 
-            }
-            else if (y == -1)
-            {
-                _moveDirection = TiledMoveDirection.South;
+            case 1:
+                switch (y)
+                {
+                    case -1:
+                        _moveDirection = TiledMoveDirection.SouthEast;
+                        break;
 
-            }
+                    case 0:
+                        _moveDirection = TiledMoveDirection.East;
+                        break;
 
-        }
-        else if (x == -1)
-        {
-            if (y == 1)
-            {
-                _moveDirection = TiledMoveDirection.NorthWest;
-
-            }
-            else if (y == 0)
-            {
-                _moveDirection = TiledMoveDirection.West;
-            }
-            else if (y == -1)
-            {
-                _moveDirection = TiledMoveDirection.SouthWest;
-            }
+                    case 1:
+                        _moveDirection = TiledMoveDirection.NorthEast;
+                        break;
+                }
+                break;
         }
 
         _directionVector = new Vector2(x, y).normalized;
@@ -205,64 +217,79 @@ public class RPGTiledMovement : MonoBehaviour
     }
 
 
-    //Wall check most likely can detect false walls or accidental wall collision checks.
-    //DIRECTION DEGREE CALCULATES WRONG ANGLE SOMEHOW. MIGHT NOT TO CHANGE 
     private void WallDetection()
     {
-
-        
         for (int i = 0; i < _rayAngles.Length; i++)
         {
-
             RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, _rayAngles[i], 1f);
             for (int j = 0; j < hit.Length; j++)
             {
-
                 if (hit[j].transform != transform && hit[j].collider != null)
                 {
-                    
-                    float rayDegree = Mathf.Round(Vector2.Angle(transform.position, _rayAngles[i]));
-                    float directionDegree = Mathf.Round(Vector2.Angle(transform.position, _directionVector));
-                    if (rayDegree == directionDegree)
+                    _hasRaycastHitWall[j] = true;
+                    Vector2 colliderTranform = Vector2.zero;
+                    switch (i)
                     {
-                        Debug.Log("SAME ANGLE");
-                        Debug.Log(i);
-                        Debug.Log(directionDegree + " " + _directionVector + " " + _moveDirection.ToString());
-                        Debug.Log(Mathf.Round(Vector2.Angle(transform.position, _directionVector)));
+                        case 0:
+                            
+                            colliderTranform = new Vector2(_cellTranfromPosition.x + 1, _cellTranfromPosition.y);
+                            break;
+
+                        case 1:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x + 1, _cellTranfromPosition.y + 1);
+                            break;
+
+                        case 2:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x, _cellTranfromPosition.y + 1);
+                            break;
+
+                        case 3:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x - 1, _cellTranfromPosition.y + 1);
+                            break;
+
+                        case 4:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x - 1, _cellTranfromPosition.y);
+                            break;
+
+                        case 5:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x - 1, _cellTranfromPosition.y - 1);
+                            break;
+
+                        case 6:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x, _cellTranfromPosition.y - 1);
+                            break;
+
+                        case 7:
+                            colliderTranform = new Vector2(_cellTranfromPosition.x + 1, _cellTranfromPosition.y - 1);
+                            break;
+                    }
+                    
+
+                    if (colliderTranform == nextCellPosition)
+                    {
                         _wallCheck = false;
                         _pressedInput = false;
                         return;
                     }
-
                 }
-
+                else
+                {
+                    _hasRaycastHitWall[j] = false;
+                }
             }
-
         }
-
         _wallCheck = false;
         _pressedInput = false;
         _moveObject = true;
     }
 
-    private void MoveObjectToCell(Vector3 NextCellPosition)
+    private void MoveObjectToCell(Vector2 NextCellPosition)
     {
-
-        
-
-        Vector3 position = Vector3.MoveTowards(transform.position, NextCellPosition, _speed * Time.deltaTime);
+        Vector2 position = Vector2.MoveTowards(transform.position, NextCellPosition, _speed * Time.deltaTime);
 
         _rigidbody.MovePosition(position);
 
-        //OTHER SOLUTION IS TO KEEP UP HOW MANY TIMES A FRAME IT IS STUCK ON THE SAME P
-
-        Debug.Log("Moving");
-
-        
-        Vector3 roundedPosition = new Vector3(Mathf.Round(transform.position.x * 100f) / 100, Mathf.Round(transform.position.y * 100f) / 100f, 0);
-        roundedPosition = new Vector3(Mathf.Round(transform.position.x * 10f) / 10f, Mathf.Round(transform.position.y * 10f) / 10f, 0);
-        
-        if (roundedPosition == NextCellPosition)
+        if (position == NextCellPosition)
         {
             Debug.Log("reached");
             _cellTranfromPosition = NextCellPosition;
@@ -270,15 +297,51 @@ public class RPGTiledMovement : MonoBehaviour
         }
     }
 
-    
 
-    
+    //Manier om dit ook te doen is door een array van bools te maken of een dictonary ofzo.
+    //heel verwarrend
+    private void Something()
+    {
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, _rayAngles[2], 1f);
+        //if (hit[j].transform != transform && hit[j].collider != null)
+        if (x == 1 && y == 1)
+        {
 
+            if (!_hasReachedDestination1)
+            {
+                if (_moveObject == true)
+                {
+                    Vector2 sequencePosition1 = new Vector2(_cellTranfromPosition.x + 1, _cellTranfromPosition.y);
+                    MoveObjectToCell(sequencePosition1);
+                }
+                else
+                {
+                    _hasReachedDestination1 = true;
+                }
+            }
+            else if (!_hasReachedDestination2)
+            {
+                if (_moveObject == true)
+                {
+                    Vector2 sequencePosition1 = new Vector2(_cellTranfromPosition.x, _cellTranfromPosition.y + 1);
+                    MoveObjectToCell(sequencePosition1);
+                }
+                else
+                {
+                    _hasReachedDestination2 = true;
+                }
+            }
+            
+        }
+    }
+
+    private void MovementSequence()
+    {
+
+    }
 
     private void OnDrawGizmos()
     {
-        
-
         for (int i = 0; i < _rayAngles.Length; i++)
         {
             Gizmos.color = Color.yellow;

@@ -48,7 +48,10 @@ public class DialougeBox : MonoBehaviour
 
     private DialogueState _state = DialogueState.Loaded;
 
-   
+   /*BUG**
+    * There is a bug where the audio keeps playing after the dialogue has finished.
+    * Maybe there is a function to stop the incoming or current audio.
+    * */
 
     private void Awake()
     {
