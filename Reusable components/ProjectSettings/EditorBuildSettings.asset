@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialScene.unity
     guid: ca00f99a1c1ebaf44bbf64d4cb3826e0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 8eb6e6e59d9137a43a7991358e077443
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/YouWin.unity
     guid: 0a8630551d958c945939397b71802a45
+  - enabled: 1
+    path: Assets/Scenes/new stuff/Workshop.unity
+    guid: e477a797657c6f2459fc1d8f4176b475
   m_configObjects: {}
