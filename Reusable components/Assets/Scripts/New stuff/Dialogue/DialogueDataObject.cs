@@ -3,6 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using UnityEditor.U2D.Animation;
+using Unity.VisualScripting;
+using UnityEngine.PlayerLoop;
+
+#if UNITY_EDITOR
+
+using UnityEditor;
+
+#endif
 
 public enum DialogueType
 {
@@ -16,37 +26,65 @@ public enum DialogueType
 [CreateAssetMenu(fileName = "DialogueData", menuName = "ScriptableObjects/DialogueData")]
 public class DialogueDataObject : ScriptableObject
 {
+    [SerializeField]
+    private Sprite startingBackground;
 
-    public List<DialogueOptions> DialogueOptions = new List<DialogueOptions>();
+    [SerializeField, HideInInspector]
+    private DialogueOptions[] options;
+
+    public DialogueOptions[] Options => options;
+
+    
 
 }
 
 [Serializable]
 public class DialogueOptions
 {
-    [SerializeField] private DialogueType _dialogueType = DialogueType.Default;
 
-    [SerializeField] private CharacterData _characterData;
+    [SerializeField, HideInInspector]
+    private DialogueType dialogueType = DialogueType.Default;
 
-    [SerializeField] private Image _newBackground;
+    
 
-    [SerializeField] private float _textSpeed;
+    [SerializeField, HideInInspector]
+    private CharacterData characterData;
 
-    [SerializeField] private AudioClip _dialogueSound;
+    [SerializeField, HideInInspector]
+    private Sprite faceSprite;
 
-    //character Expression
+    [SerializeField, HideInInspector]
+    private string dialogueText;
 
+    [SerializeField, HideInInspector]
+    private Image newBackground;
 
-    [SerializeField]
-    [TextArea(1, 2)]
-    private string _dialogue;
+    [SerializeField, HideInInspector]
+    private float textSpeed;
 
-    public DialogueType TypeOfDialogue => _dialogueType;
-    public string CurrentCharacterName => _characterData._characterName;
-    public Sprite CharacterImage => _characterData._characterDialogueImage;
-    public Image Background => _newBackground;
-    public string Dialogue => _dialogue;
-    public AudioClip AudioClip => _dialogueSound;
+    [SerializeField, HideInInspector]
+    private AudioClip textSound;
 
+    [SerializeField, HideInInspector]
+    private int audioPerCharacter;
+
+    [SerializeField, HideInInspector]
+    private string playerFace;
+
+    [SerializeField, HideInInspector]
+    private int selected;
+
+    public DialogueType DialogueType => dialogueType;
+    public CharacterData CharacterData => characterData;
+    public Sprite FaceSprite => faceSprite;
+    public string DialogueText => dialogueText;
+    public Image Background => newBackground;
+    public float TextSpeed => textSpeed;
+    public AudioClip AudioClip => textSound;
+    public int AudioPerCharacter => audioPerCharacter;
+    public string PlayerFace => playerFace;
+    public int Selected => selected;
 
 }
+
+

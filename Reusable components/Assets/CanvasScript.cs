@@ -25,8 +25,10 @@ public class CanvasScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_kb.pauseInput)
+        if (_kb.PauseInput)
+        {
             _pause.SetActive(true);
+        }
 
 
         /*if (_player.GetComponent<Health>().isDead)

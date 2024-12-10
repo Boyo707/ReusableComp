@@ -27,16 +27,16 @@ public class DialougeBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _characterNameText;
 
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _audioClip;
+    private AudioClip _audioClip;
 
-    [SerializeField][Range(1, 10)] private int _audioPerCharacter;
+    private int _audioPerCharacter;
     private int _writtenCharacter;
 
 
     [Header("Dialogue Options")]
     [SerializeField] private bool _startOnAwake = false;
 
-    [SerializeField][Range(1, 20)] private float _textSpeed; 
+    private float _textSpeed; 
 
     [SerializeField] private List <DialogueDataObject> _dialogue = new List<DialogueDataObject>();
 
@@ -47,6 +47,10 @@ public class DialougeBox : MonoBehaviour
     private int _currentDialogueIndex = 0;
 
     private DialogueState _state = DialogueState.Loaded;
+
+
+    private string currentDialogue;
+    private Sprite currentFaceSprite;
 
    /*BUG**
     * There is a bug where the audio keeps playing after the dialogue has finished.
@@ -61,12 +65,16 @@ public class DialougeBox : MonoBehaviour
             _currentDialogueIndex = 0;
             _currentDialogueSceneIndex = 0;
 
-            _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
-            _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
-            _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
-            if (_dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip != null)
+            currentFaceSprite = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].FaceSprite;
+            currentDialogue = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].DialogueText;
+
+            _textSpeed = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].TextSpeed;
+            _audioPerCharacter = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].AudioPerCharacter;
+
+            _characterNameText.text = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].CharacterData.characterName;
+            if (_dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].AudioClip != null)
             {
-                _audioClip = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].AudioClip;
+                _audioClip = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].AudioClip;
                 _audioSource.clip = _audioClip;
             }
 
@@ -86,6 +94,11 @@ public class DialougeBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentDialogue = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].DialogueText;
+        currentFaceSprite = currentFaceSprite = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].FaceSprite;
+        _characterImage.sprite = currentFaceSprite;
+        
+
         #region Dialouge Inputs
         switch (_state)
         {
@@ -154,13 +167,14 @@ public class DialougeBox : MonoBehaviour
         _dialogueBox.SetActive(true);
         _currentDialogueIndex = 0;
         _currentDialogueSceneIndex= 0;
+        
         StartCoroutine(DrawText());
     }
 
     private IEnumerator DrawText()
     {
 
-        foreach (char c in _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue.ToCharArray())
+        foreach (char c in currentDialogue.ToCharArray())
         {
             _dialogueBoxText.text += c;
             if (c != ' ')
@@ -172,6 +186,7 @@ public class DialougeBox : MonoBehaviour
                 }
             }
             //_audioSource.Stop();
+            
             yield return new WaitForSeconds(1f / _textSpeed);
             _state = DialogueState.Writing;
         }
@@ -184,7 +199,7 @@ public class DialougeBox : MonoBehaviour
 
         _dialogueBoxText.text = string.Empty;
 
-        if (_currentDialogueIndex == _dialogue[_currentDialogueSceneIndex].DialogueOptions.Count - 1)
+        if (_currentDialogueIndex == _dialogue[_currentDialogueSceneIndex].Options.Length - 1)
         {
             if (_currentDialogueSceneIndex == _dialogue.Count - 1)
             {
@@ -199,8 +214,8 @@ public class DialougeBox : MonoBehaviour
 
         _currentDialogueIndex++;
 
-        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
-        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].FaceSprite;
+        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].CharacterData.characterName;
 
         StartCoroutine(DrawText());
     }
@@ -213,8 +228,8 @@ public class DialougeBox : MonoBehaviour
 
         _currentDialogueIndex++;
 
-        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CharacterImage;
-        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].CurrentCharacterName;
+        _characterImage.sprite = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].FaceSprite;
+        _characterNameText.text = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].CharacterData.characterName;
 
         StartCoroutine(DrawText());
     }
@@ -224,7 +239,7 @@ public class DialougeBox : MonoBehaviour
         StopAllCoroutines();
         _state = DialogueState.Loaded;
 
-        _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].DialogueOptions[_currentDialogueIndex].Dialogue;
+        _dialogueBoxText.text = _dialogue[_currentDialogueSceneIndex].Options[_currentDialogueIndex].DialogueText;
     }
 
     private void NextDialogueScene()

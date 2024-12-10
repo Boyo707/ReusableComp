@@ -1,0 +1,1203 @@
+fileFormatVersion: 2
+guid: a534e5ca768db714289827287e750830
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2152
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6a4257d116e82498ff0472dc7d256f
+      internalID: -864023744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_1
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 2152
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e36b444a6c41649a04b300cc42fdba
+      internalID: 1870190754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_2
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 2152
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d755aa57fea645418c86911f3837570
+      internalID: 1835132475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_3
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 2152
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610b2ce5477275d4cb3a75bf72503cab
+      internalID: -437365919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1970
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb60be95278dd34ba4768333612d3ce
+      internalID: 865707433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_5
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1970
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 955be0b0dacede0428b98ed5aa92bea8
+      internalID: -734963160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_6
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1970
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c75c7ea88e909b489a528cdc1bbb1af
+      internalID: 1506098531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_7
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1970
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 078b9af9721898e42afa23a01d2badfc
+      internalID: 2024760228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1788
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f43ff6ad0e12ad4da8a441f1e5d2f14
+      internalID: 1327906956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_9
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1788
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09175a8dd55e09e4d8e9d4181a6eadcb
+      internalID: -1685643275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_10
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1788
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768e2af7450b05d4dbdf8100cf4f542f
+      internalID: 586431098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_11
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1788
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85cbf1bf99e1b044ab79a28e585d5a02
+      internalID: -1987416466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1606
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c96983d49011184a900322e2ae77350
+      internalID: 62071562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_13
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1606
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e6f30675a114a409b3d0a8cf723c36
+      internalID: 648597641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_14
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1606
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632bde2131a74bb4fbb6a69147c6adc1
+      internalID: 1125979402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_15
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1606
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0e7d1d08a7ffb4abace97baadeaa9c
+      internalID: -437563392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1424
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08bcbbc88b9f6246a29c82f5a5e417d
+      internalID: 625297189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_17
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1424
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa55c562980e3b48b8df7b04641d06a
+      internalID: -77529539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_18
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1424
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcf239bd0c68de49b6ce5f4ae9f5ff2
+      internalID: -253422861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_19
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1424
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6901dd8583f5b834c89e08406ea4e9db
+      internalID: 1658447260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1242
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49da364075d6cde41bf2325e5e7b81a5
+      internalID: -2070615253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_21
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1242
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d2c03a14c61b349908ba5201877430
+      internalID: -1641683751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_22
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1242
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828e212b79b9f9f40a0847e3a4fde2c6
+      internalID: 866725213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_23
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1242
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f3af1672e68f048a75878a83713c5d
+      internalID: -1230105440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1060
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51dcb5868d8f88418ef51eb848bbddb
+      internalID: -1057848360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_25
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1060
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b90e280f0620f48bba47b8e76552ed
+      internalID: 553750107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_26
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1060
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006eece162a9a8c49bff3991cdc77f92
+      internalID: 503172919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_27
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1060
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c14cab9e699b042bacdbeed02f0282
+      internalID: -44792630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 878
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b176474a761efc4487414ec19a483f1
+      internalID: 574183733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_29
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 878
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720feb04bbd520b4fa28eee86bd21359
+      internalID: -1243665003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_30
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 878
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d5f8c41aad6d9458dc7328f85fce21
+      internalID: 1456452530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_31
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 878
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0487c012a5cd24ea859a20c64256d0
+      internalID: 2146808825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 696
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e693fe7950b30534794fb96412cd7c0b
+      internalID: 613889985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_33
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 696
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e93d45c73a37c546a139cc71321d20f
+      internalID: 1830983730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_34
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 696
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b569ffea4cb124f93a8c4fd7181407
+      internalID: -1870459205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_35
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 696
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ab12d77373e594aaca14fd446bb328
+      internalID: -674284350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e760a9a2a836f42a012474e93299a3
+      internalID: -54419172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_37
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 514
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d0c01d60e8f7e40bf6065f9f985b3e
+      internalID: 687672435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_38
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 514
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0c437b7ba51de46aefbfcfb9eb9b3e
+      internalID: -1530001517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_39
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 514
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ab1dfb8098aa8489524e3f8c0fb9e9
+      internalID: -1303651844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 332
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21352721a3511e4428ff578f9fbeacfb
+      internalID: -1000653293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_41
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 332
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c74788ba893f04ba3edcaaf20c3bbf
+      internalID: -1688793650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_42
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 332
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38f24dd0501c4d469f1dbb68e67ed3d
+      internalID: 155744416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_43
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 332
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84bbdc32f2c1ad847b86010ae10baac7
+      internalID: -680856350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e6420030ec2bb45bdf47a5d5ed4f7a
+      internalID: -1957631246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_45
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 150
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910b9e138cf3f7645976567cde1d5442
+      internalID: -1427617695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_46
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 150
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7347577432565e34da5ba54519ee828e
+      internalID: 171578800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_47
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 150
+        width: 321
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76f31538b6de2d4093a16a273bfbc53
+      internalID: -714469143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_9: -1685643275
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_16: 625297189
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_22: 866725213
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_34: -1870459205
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_46: 171578800
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_31: 2146808825
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_5: -734963160
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_11: -1987416466
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_12: 62071562
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_17: -77529539
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_32: 613889985
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_47: -714469143
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_26: 503172919
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_45: -1427617695
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_18: -253422861
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_13: 648597641
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_20: -2070615253
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_19: 1658447260
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_21: -1641683751
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_2: 1835132475
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_3: -437365919
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_42: 155744416
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_36: -54419172
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_35: -674284350
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_38: -1530001517
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_15: -437563392
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_33: 1830983730
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_30: 1456452530
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_29: -1243665003
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_23: -1230105440
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_37: 687672435
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_43: -680856350
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_39: -1303651844
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_4: 865707433
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_25: 553750107
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_40: -1000653293
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_1: 1870190754
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_10: 586431098
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_28: 574183733
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_14: 1125979402
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_7: 2024760228
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_27: -44792630
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_41: -1688793650
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_44: -1957631246
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_6: 1506098531
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_24: -1057848360
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_0: -864023744
+      Nintendo Switch - Pokemon Lets Go Pikachu Eevee - Trainer Battle Transition_8: 1327906956
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

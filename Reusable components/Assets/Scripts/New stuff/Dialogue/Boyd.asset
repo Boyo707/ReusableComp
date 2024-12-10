@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e18c43c940254993022bfa951a820, type: 3}
   m_Name: Boyd
   m_EditorClassIdentifier: 
-  _characterName: Boyd
-  _characterGender: 0
-  _characterType: 0
-  _characterDialogueImage: {fileID: 526771944, guid: 537ffa53b665e0e4db2d8a2fae5a8899, type: 3}
-  _characterDescription: 
+  characterName: 
+  characterGender: 0
+  characterType: 0
+  textColor: {r: 0, g: 0, b: 0, a: 0}
+  characterDescription: 
+  charcterF:
+  - faceName: Lmao
+    faceImage: {fileID: 21300000, guid: 2977f9c4db7674948b7001e5f0080f53, type: 3}
+  - faceName: Shit
+    faceImage: {fileID: 21300000, guid: 053512c8de9abc44680820171b67a08f, type: 3}
+  shit: FUCK

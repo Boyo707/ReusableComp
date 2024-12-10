@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e18c43c940254993022bfa951a820, type: 3}
   m_Name: Anne
   m_EditorClassIdentifier: 
-  _characterName: Anne
-  _characterGender: 1
-  _characterType: 1
-  _characterDialogueImage: {fileID: 210814738, guid: 11348660bc800fa49a3b4cd8e8ea46e2, type: 3}
-  _characterDescription: 
+  characterName: 
+  characterGender: 1
+  characterType: 0
+  textColor: {r: 0, g: 0, b: 0, a: 0}
+  characterDescription: 
+  characterFaces: []
+  characterDialogueAudio: {fileID: 0}

@@ -50,7 +50,7 @@ public class PlayerAnimParams : MonoBehaviour
 
         bool sprinting = _kB.Sprinting;
 
-        bool onSlope = _slope.onSlope;
+        //bool onSlope = _slope.onSlope;
 
         //bool hurt = _health.knocked;
         
@@ -63,14 +63,14 @@ public class PlayerAnimParams : MonoBehaviour
         _bodyAnimator.SetBool("Moving", moving);
         _bodyAnimator.SetBool("Sprinting", sprinting);
         //_bodyAnimator.SetBool("OnGround", onGround);
-        _bodyAnimator.SetBool("OnSlope", onSlope);
+        //_bodyAnimator.SetBool("OnSlope", onSlope);
         //_bodyAnimator.SetBool("Hurt", hurt);
 
         _legsAnimator.SetFloat("VerticalVelocity", verticalSpeed);
         _legsAnimator.SetBool("Moving", moving);
         _legsAnimator.SetBool("Sprinting", sprinting);
         //_legsAnimator.SetBool("OnGround", onGround);
-        _legsAnimator.SetBool("OnSlope", onSlope);
+        //_legsAnimator.SetBool("OnSlope", onSlope);
         //_legsAnimator.SetBool("Hurt", hurt);
 
 

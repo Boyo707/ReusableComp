@@ -27,7 +27,6 @@ public class GroundDetection : MonoBehaviour
     [SerializeField] private Color _colorOffGround = Color.red;
 
 
-    private RaycastHit2D blah;
 
     private void Update()
     {

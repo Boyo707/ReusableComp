@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour, IPlayer
 {
     private KeyboardInput _kB;
     private SpriteRenderer _spR;
     private IJump _jump;
     private JumpState _JORDI;
-    private IMovements[] _movement;
+    private IMovements _movement;
     private AttackProjectile _attack;
     private AttackMellee _attackMellee;
     private Health _health;
@@ -16,7 +17,6 @@ public class PlayerController : MonoBehaviour, IPlayer
     private Rigidbody2D _rb;
    
 
-    [SerializeField]private int movementType;
     private float time;
     private float othertime;
     private float _defaultGravity;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         _spR = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         _jump = GetComponent<IJump>();
-        _movement = GetComponents<IMovements>();
+        _movement = GetComponent<IMovements>();
         _attack = GetComponent<AttackProjectile>();
         _attackMellee = GetComponent<AttackMellee>();
         _health = GetComponent<Health>();
@@ -51,22 +51,24 @@ public class PlayerController : MonoBehaviour, IPlayer
                 _attackMellee.Attack(_kB.melleeAttack, _spR.flipX);
             }
         }*/
-        movementSwitcher();
+        //movementSwitcher();
     }
 
 
     private void FixedUpdate()
     {
-        /*if (!_health.isDead)
+        //_movement.MoveInput(_kB.HorizontalMovement, _kB.Sprinting);
+
+        /*
+        if (!_health.isDead)
         {
             if (!_health.knocked)
             {
-                //_movement[movementType].MoveInput(_kB.moveInput, _kB.Sprinting);
             }
         }*/
     }
 
-    private void movementSwitcher()
+    /*private void movementSwitcher()
     {
         ///Ik will de box collider uitzetten wanneer ik op een slope ben. en aan wanneer ik dat niet ben
 
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         {
             
             movementType = 1;
-        }*/
+        }
 
         
 
@@ -101,5 +103,5 @@ public class PlayerController : MonoBehaviour, IPlayer
             time -= Time.deltaTime;
 
         }
-    }
+    }*/
 }

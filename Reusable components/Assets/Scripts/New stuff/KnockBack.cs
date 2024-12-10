@@ -16,79 +16,49 @@ public class KnockBack : MonoBehaviour
     [Header("Knock Back Values")]
     [SerializeField] private float _knockBackForce;
     [SerializeField][Range(0, 360)] private float _knockBackAngle;
-    [SerializeField] private bool _flipsAngleOnSpriteFlipX = true;
-    [SerializeField] private Transform _entityTransform;
+    //HAS NOT BEEN APPLIED YET. TO LAZY
+    [SerializeField] private bool _flipsAngleWithEntity = true;
 
     [SerializeField] private LayerMask _layerMask;
 
     [Header("Knock Back Stun")]
     [SerializeField] private float _stunDuration;
 
-    private bool _flipped = false;
-    private float _orignalAngle;
-    private float _flippedAngle;
-
-    void Start()
-    {
-        bool done = false;
-        _orignalAngle = _knockBackAngle;
-        if (_flipsAngleOnSpriteFlipX)
-        {
-            if (!done)
-            {
-                if (_orignalAngle < 180 && _orignalAngle > 90 && !done || _orignalAngle > 270 && _orignalAngle < 360 && !done)
-                {
-                    _flippedAngle = _knockBackAngle - 90;
-                    done = true;
-
-                }
-                else if (_orignalAngle < 90 && _orignalAngle > 0 && !done || _orignalAngle > 180 && _orignalAngle < 270 && !done)
-                {
-                    _flippedAngle = _knockBackAngle + 90;
-                    done = true;
-
-                }
-            }
-            
-
-        }
-    }
-
-    private void Update()
-    {
-        
-
-        if (_entityTransform.localScale.x == -1)
-        {
-            _flipped = true;
-        }
-        else
-        {
-            _flipped = false;
-        }
-        if (_flipped)
-            _knockBackAngle = _flippedAngle;
-        else
-            _knockBackAngle = _orignalAngle;
-
-
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (_layerMask == (_layerMask | (1 << collision.gameObject.layer)))
-            {
-                collision.GetComponent<IEntityController>().DisableEntityControlls(_stunDuration);
-
-                var Angle = new Vector2(Mathf.Cos(_knockBackAngle * Mathf.Deg2Rad) * _knockBackForce,
-                    Mathf.Sin(_knockBackAngle * Mathf.Deg2Rad) * _knockBackForce);
-                collision.GetComponent<Rigidbody2D>().velocity = Angle;
-            }
-
-
+        {
+            //Health.KnockBack
+            collision.GetComponent<Health>().ApplyKnockBack(AngleFlipCheck(_knockBackAngle, collision), _knockBackForce, _stunDuration);
+        }
     }
+
+    private float AngleFlipCheck(float knockbackAngle, Collider2D collider)
+    {
+        float normalAngle = knockbackAngle;
+        float flippedAngle = 0;
+        float finalAngle = 0;
+        if (Mathf.Sign(collider.transform.lossyScale.x) < 0)
+        {
+            if (normalAngle < 180 && normalAngle > 90 || normalAngle > 270 && normalAngle < 360)
+            {
+                flippedAngle = knockbackAngle - 90;
+            }
+            else if (normalAngle < 90 && normalAngle > 0 || normalAngle > 180 && normalAngle < 270)
+            {
+                flippedAngle = knockbackAngle + 90;
+            }
+            finalAngle = flippedAngle;
+        }
+        else
+        {
+            finalAngle = normalAngle;
+        }
+
+
+        return finalAngle;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56e18c43c940254993022bfa951a820, type: 3}
+  m_Name: Pooop
+  m_EditorClassIdentifier: 
+  characterName: Bro
+  characterGender: 0
+  characterType: 0
+  textColor: {r: 0, g: 0, b: 0, a: 0}
+  characterDescription: pooopppyyyy
+  characterFaces:
+  - faceName: Default
+    faceImage: {fileID: -1887608677, guid: 939e0ad75f8e03c458f0d94a53e7f4f8, type: 3}
+  - faceName: Happy
+    faceImage: {fileID: 778792260, guid: 939e0ad75f8e03c458f0d94a53e7f4f8, type: 3}
+  - faceName: Mad
+    faceImage: {fileID: -729173652, guid: 939e0ad75f8e03c458f0d94a53e7f4f8, type: 3}
+  - faceName: Sad
+    faceImage: {fileID: 1686248523, guid: 939e0ad75f8e03c458f0d94a53e7f4f8, type: 3}
+  characterDialogueAudio: {fileID: 8300000, guid: 05c3fa6e1d875dc4a95e816d0e797df1, type: 3}

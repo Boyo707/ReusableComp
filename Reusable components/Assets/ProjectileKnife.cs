@@ -48,7 +48,7 @@ public class ProjectileKnife : MonoBehaviour, IProjectile
     }
 
 
-    public GameObject itParent
+    public GameObject ItParent
     {
         get { return _parent; }
         set { _parent = value; }
@@ -180,7 +180,7 @@ public class ProjectileKnife : MonoBehaviour, IProjectile
         
     }
 
-    public void setParent(GameObject parent)
+    public void SetParent(GameObject parent)
     {
         _parent = parent;
     }

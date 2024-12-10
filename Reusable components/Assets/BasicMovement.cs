@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum MovementStates
+public enum MovementStatesTut
 {
     Velocity,
     AddForce,
@@ -11,7 +11,7 @@ public enum MovementStates
 
 public class BasicMovement : MonoBehaviour
 {
-    private MovementStates _state; 
+    private MovementStatesTut _state; 
 
     private Rigidbody2D _rigidbody2D;
 
@@ -22,7 +22,7 @@ public class BasicMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _state = MovementStates.Velocity;
+        _state = MovementStatesTut.Velocity;
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -59,7 +59,7 @@ public class BasicMovement : MonoBehaviour
             _rigidbody2D.velocity = transform.up * speedFloat;
 
         //If statement voor de transform state verandering
-        if (_state == MovementStates.TransformPosition)
+        if (_state == MovementStatesTut.TransformPosition)
             TransformPosition();
     }
 
@@ -69,13 +69,13 @@ public class BasicMovement : MonoBehaviour
         //Je gebruikt FixedUpdate vooral voor functies dat physics gebruikt zoals de rigidbody.
         switch (_state)
         {
-            case MovementStates.Velocity:
+            case MovementStatesTut.Velocity:
                 Velocity();
                 break;
-            case MovementStates.AddForce:
+            case MovementStatesTut.AddForce:
                 AddForce();
                 break;
-            case MovementStates.RigidbodyMovePosition:
+            case MovementStatesTut.RigidbodyMovePosition:
                 RigidbodyMovePosition();
                 break;
         }
@@ -85,17 +85,17 @@ public class BasicMovement : MonoBehaviour
     //Snelle void voor het switchen naar de volgende state.
     private void NextState()
     {
-        if (_state == MovementStates.Velocity)
-            _state = MovementStates.AddForce;
-        else if (_state == MovementStates.AddForce)
+        if (_state == MovementStatesTut.Velocity)
+            _state = MovementStatesTut.AddForce;
+        else if (_state == MovementStatesTut.AddForce)
         {
             _rigidbody2D.velocity = Vector2.zero;
-            _state = MovementStates.TransformPosition;
+            _state = MovementStatesTut.TransformPosition;
         }
-        else if (_state == MovementStates.TransformPosition)
-            _state = MovementStates.RigidbodyMovePosition;
-        else if (_state == MovementStates.RigidbodyMovePosition)
-            _state = MovementStates.Velocity;
+        else if (_state == MovementStatesTut.TransformPosition)
+            _state = MovementStatesTut.RigidbodyMovePosition;
+        else if (_state == MovementStatesTut.RigidbodyMovePosition)
+            _state = MovementStatesTut.Velocity;
     }
 
     private void Velocity()
@@ -112,8 +112,8 @@ public class BasicMovement : MonoBehaviour
     private void AddForce()
     {
 
-        _rigidbody2D.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * speedFloat);
-        _rigidbody2D.AddForce(transform.up * Input.GetAxisRaw("Vertical") * speedFloat);
+        _rigidbody2D.AddForce(Input.GetAxisRaw("Horizontal") * speedFloat * transform.right);
+        _rigidbody2D.AddForce(Input.GetAxisRaw("Vertical") * speedFloat * transform.up);
     }
 
     private void TransformPosition()

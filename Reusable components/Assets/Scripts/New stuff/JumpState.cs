@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class JumpState : MonoBehaviour, IJump
+[RequireComponent(typeof(Rigidbody2D), typeof(GroundDetection))]
+public class JumpState : MonoBehaviour
 {
-
-    [Header("Required Components")]
-    [SerializeField] private Rigidbody2D _rb;
 
     [Header("Jump Settings")]
     [SerializeField] private float _jumpForce = 15;
@@ -25,59 +21,71 @@ public class JumpState : MonoBehaviour, IJump
     private float? lastGroundTime;
     private float? jumpButtonPressedTime;
 
-    
-
     private float temp;
+
+    bool _jumpDown;
+    bool _jumpHold = false;
+
+    private bool _isGrounded => GetComponent<GroundDetection>().OnGround();
+    private Rigidbody2D _rB => GetComponent<Rigidbody2D>();
+
+    public void OnJump(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.started)
+        {
+            jumpButtonPressedTime = Time.time;
+        }
+
+        _jumpHold = callbackContext.performed;
+    }
 
     private void Start()
     {
         temp = _doubleJumpAmount;
     }
 
-
-
-    public void JumpInput(bool isGrounded, bool jumpDown, bool jumpHold = false)
+    private void Update()
     {
-
-        if (isGrounded)
+        
+        if (_isGrounded)
         {
             _doubleJumpAmount = temp;
             lastGroundTime = Time.time;
         }
 
-        if (jumpDown)
-            jumpButtonPressedTime = Time.time;
+
 
         if (Time.time - lastGroundTime <= jumpButtonGrace)
         {
-            if (Time.time - jumpButtonPressedTime <= jumpButtonGrace)
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGrace )
             {
-                _rb.velocity = Vector2.up * _jumpForce;
+                _rB.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                jumpButtonPressedTime = null;
+                lastGroundTime = null;
+            }
+            else
+            {
                 jumpButtonPressedTime = null;
                 lastGroundTime = null;
             }
         }
+    }
 
-        if (_doubleJumpAmount != 0)
-            if (!isGrounded)
-                if (jumpDown)
-                {
-                    Debug.Log("2");
-                    jumpButtonPressedTime = null;
-                    lastGroundTime = null;
-                    _rb.velocity = Vector2.up * _jumpForce / 1.25f;
-                    _doubleJumpAmount -= 1;
-                }
+    private void FixedUpdate()
+    {
+        Debug.Log(_jumpDown + " = down, " + _jumpHold + " = hold");
 
-        if (_rb.velocity.y < 0)
+        if (!_isGrounded)
         {
-            _rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            if (_rB.velocity.y < 0)
+            {
+                _rB.velocity += (fallMultiplier - 1) * Physics2D.gravity.y * Time.deltaTime * Vector2.up;
+            }
+            else if (_rB.velocity.y > 0 && !_jumpHold)
+            {
+                _rB.velocity += (lowJumpMultiplier - 1) * Physics2D.gravity.y * Time.deltaTime * Vector2.up;
+            }
         }
-        else if (_rb.velocity.y > 0 && !jumpHold)
-        {
-            _rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-
     }
 
 }

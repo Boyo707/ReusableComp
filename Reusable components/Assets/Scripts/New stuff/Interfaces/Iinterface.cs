@@ -5,7 +5,7 @@ using UnityEngine;
 interface IControllerInput
 {
     public float HorizontalInput { get; }
-    public bool Sprinting { get; }
+    public bool DashInput { get; }
 
     public bool AttackMellee { get; }
     public bool AttackProjectile { get; }

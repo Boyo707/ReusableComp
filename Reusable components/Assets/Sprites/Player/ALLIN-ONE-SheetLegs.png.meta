@@ -1,0 +1,785 @@
+fileFormatVersion: 2
+guid: 9b27a0cd154bf4f43bd8f3d42423bfa4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcb2d6cbabf54740b26ffb94ee35b72
+      internalID: 965700937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1920
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6185e9d8ab95347a637ed3d0e75ff3
+      internalID: 810246921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1920
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d402f2ee35378f047953739b3bf01e78
+      internalID: -1746855150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1920
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e108a238f86f54b9ce8e5a70f525d2
+      internalID: 1022352996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca731ebced1bae418ce68423af65250
+      internalID: -1260378950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70e6eed4c61e5e409bb2bfd4f30834f
+      internalID: 2127822113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05eecebfc3db1a14696f75a0c87e2460
+      internalID: -808598738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_7
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d3d996643ce7a4296d8ef8e22b00ac
+      internalID: -1729724094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_8
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693378df3cc50bb47a1ca586f94bcf9a
+      internalID: -1366939751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15090d94404574d4d90a3f695c69bcdd
+      internalID: -261149123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_10
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5484a8a3cc1aa3140a629200a7c58f6b
+      internalID: -1310555569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_11
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1728
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371b654f67459e543b9f2db1bf5e95cc
+      internalID: -1908416003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af28663f6dc47f4baf92ddeedc09291
+      internalID: 1069618646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_13
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a9bed83ec578c5408aa298e0c8f2622
+      internalID: -476481964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_14
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a23ae8da1e121940bc220423adcb23e
+      internalID: -1082103437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_15
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5accab9a75a234e97909ff39a1dfd7
+      internalID: -765295099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_16
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b5ce661f7a8644cbf289a521638466
+      internalID: -559942554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_17
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9dbbfcf1cda3454695e487a4a1571ad
+      internalID: -1362005038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_18
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f63f5a83620064bb277347070bfde1
+      internalID: -1164514003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_19
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62fb74244a4b6341a8ce5343cf67556
+      internalID: -1290442944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_20
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b813e4e884a2344ab01f916ce89cee
+      internalID: 686977894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_21
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 1536
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7d97c453e86834b907f3f2c95655cc
+      internalID: -678026332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ad7668e1dcc7f43a9a47a6d640a140
+      internalID: -1708579589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c122ddd9ddc6e8942a51d160b7cc505e
+      internalID: 515182504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95067dd8422c77c41a0234273c15752d
+      internalID: -1628233745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1152
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba94b3f11474124fa0d4d0b0279b782
+      internalID: -1248383061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9537bb7c5583a54eab6def97d5eb86b
+      internalID: -1812899804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d835bd641c5e07749a0b29a0fa924342
+      internalID: -1606614549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALLIN-ONE-SheetLegs_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 768
+        width: 288
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e6f64d0a150cd4dbb835838ecc5f3f
+      internalID: -563419092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ALLIN-ONE-SheetLegs_3: 1022352996
+      ALLIN-ONE-SheetLegs_4: -1260378950
+      ALLIN-ONE-SheetLegs_26: -1606614549
+      ALLIN-ONE-SheetLegs_0: 965700937
+      ALLIN-ONE-SheetLegs_13: -476481964
+      ALLIN-ONE-SheetLegs_18: -1164514003
+      ALLIN-ONE-SheetLegs_23: -1628233745
+      ALLIN-ONE-SheetLegs_10: -1310555569
+      ALLIN-ONE-SheetLegs_16: -559942554
+      ALLIN-ONE-SheetLegs_2: -1746855150
+      ALLIN-ONE-SheetLegs_14: -1082103437
+      ALLIN-ONE-SheetLegs_21: -678026332
+      ALLIN-ONE-SheetLegs_1: 810246921
+      ALLIN-ONE-SheetLegs_8: -1366939751
+      ALLIN-ONE-SheetLegs_11: -1908416003
+      ALLIN-ONE-SheetLegs_9: -261149123
+      ALLIN-ONE-SheetLegs_19: -1290442944
+      ALLIN-ONE-SheetLegs_22: -1708579589
+      ALLIN-ONE-SheetLegs_5: 2127822113
+      ALLIN-ONE-SheetLegs_28: 515182504
+      ALLIN-ONE-SheetLegs_12: 1069618646
+      ALLIN-ONE-SheetLegs_7: -1729724094
+      ALLIN-ONE-SheetLegs_24: -1248383061
+      ALLIN-ONE-SheetLegs_6: -808598738
+      ALLIN-ONE-SheetLegs_27: -563419092
+      ALLIN-ONE-SheetLegs_17: -1362005038
+      ALLIN-ONE-SheetLegs_15: -765295099
+      ALLIN-ONE-SheetLegs_25: -1812899804
+      ALLIN-ONE-SheetLegs_20: 686977894
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

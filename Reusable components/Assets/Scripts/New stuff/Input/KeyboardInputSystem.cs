@@ -6,31 +6,79 @@ using UnityEngine.InputSystem;
 
 public class KeyboardInputSystem : MonoBehaviour, IControllerInput
 {
-
+    private bool _stopInput = false;
     public float HorizontalInput
     {
-        get { return Input.GetAxisRaw("Horizontal"); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetAxisRaw("Horizontal");
+            }
+            return 0;
+        }
     }
-    public bool Sprinting
+    public bool DashInput
     {
-        get { return Input.GetKey(KeyCode.LeftShift); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetKeyDown(KeyCode.LeftShift);
+            }
+            return false;
+        }
     }
 
     public bool AttackMellee
     {
-        get { return Input.GetKeyDown(KeyCode.K); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetKeyDown(KeyCode.K);
+            }
+            return false;
+        }
     }
     public bool AttackProjectile
     {
-        get { return Input.GetKeyDown(KeyCode.J); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetKeyDown(KeyCode.J);
+            }
+            return false;
+        }
     }
 
     public bool JumpDown
     {
-        get { return Input.GetKeyDown(KeyCode.Space); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetKeyDown(KeyCode.Space);
+            }
+            return false;
+        }
     }
     public bool JumpHold
     {
-        get { return Input.GetKey(KeyCode.Space); }
+        get 
+        {
+            if (!_stopInput)
+            {
+                return Input.GetKey(KeyCode.Space);
+            }
+            return false;
+        }
+    }
+
+
+    public void StopInput(bool isStopping)
+    {
+        _stopInput = isStopping;
     }
 }

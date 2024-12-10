@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Health : MonoBehaviour, IHealth 
+public class Health : MonoBehaviour 
 {
+    [Header("Health")]
     [SerializeField] private bool _invincible = false;
-
+    [Space]
     [SerializeField] private float _health = 10;
     [SerializeField] private int _lives = 3;
 
+    [Header("Death")]
+    [Space]
+    [SerializeField] private UnityEvent _onDeath;
     
     //public event onDeath OnDeath = delegate { };
 
@@ -21,7 +25,22 @@ public class Health : MonoBehaviour, IHealth
 
     public void TakeDamage(float damage)
     {
-        if(!_invincible)
+        if (!_invincible)
+        {
             _health -= damage;
+        }
+    }
+
+    public void ApplyKnockBack(float angle, float knockbackForce, float duration)
+    {
+        if (!_invincible)
+        {
+
+            //GetComponent<IEntityController>().DisableEntityControlls(duration);
+            //SwitchPlayerState(PlayerStates.KnockedBack);
+            var Angle = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * knockbackForce,
+            Mathf.Sin(angle * Mathf.Deg2Rad) * knockbackForce);
+            GetComponent<Rigidbody2D>().velocity = Angle;
+        }
     }
 }

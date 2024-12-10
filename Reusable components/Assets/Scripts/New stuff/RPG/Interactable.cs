@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private DialogueDataObject dialogue;
+    public void Interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DialogueManager.GetInstance().EnterDialogue(dialogue);
+        Debug.Log("Interacted");
+        Debug.Log("Interacted");
     }
 }

@@ -17,31 +17,36 @@ public class KeyboardInput : MonoBehaviour
         get { return Input.GetKey(KeyCode.LeftShift); }
     }
 
-    public bool jumpHold
+    public bool JumpHold
     {
         get { return Input.GetButton("Jump"); }
     }
-    public bool jumpDown
+    public bool JumpDown
     {
         get { return Input.GetButtonDown("Jump"); }
     }
 
-    public bool projectileAttack
+    public bool ProjectileAttack
     {
         get { return Input.GetButtonDown("Projectile Attack"); }
     }
 
-    public bool melleeAttack
+    public bool MelleeAttack
     {
         get { return Input.GetButtonDown("Mellee Attack"); }
     }
 
-    public Vector2 moveInput
+    public float HorizontalMovement
+    {
+        get { return Input.GetAxisRaw("Horizontal"); }
+    }
+
+    public Vector2 MoveInput
     {
         get { return _moveInput; }
     }
 
-    public bool pauseInput
+    public bool PauseInput
     {
         get { return Input.GetKeyDown(KeyCode.Escape); }
     }
@@ -50,6 +55,5 @@ public class KeyboardInput : MonoBehaviour
     void Update()
     {
         _moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
     }
 }

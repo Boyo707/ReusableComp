@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+interface IEntityPhysics
+{
+    Rigidbody2D Rigidbody { get; }
+    GroundDetection GroundDetection { get; }
+    bool IsGrounded { get; }
+    bool IsFacingRight { get; }
+}
+
 interface IMovements
 {
-    void MoveInput(float direction ,bool sprinting = false);
+    void MoveInput(float direction);
 }
 
 interface IEntityController
@@ -24,8 +32,8 @@ interface IAttack
 
 interface IProjectile
 {
-    GameObject itParent { get; set; }
-    void setParent(GameObject parent);
+    GameObject ItParent { get; set; }
+    void SetParent(GameObject parent);
 }
 
 interface ITrajectory
